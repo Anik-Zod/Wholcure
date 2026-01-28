@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0066FF;
+  --color-primary-dark: #0052CC;
+  --color-primary-light: #3385FF;
+  
+  --color-secondary: #00D4AA;
+  --color-secondary-dark: #00B894;
+  
+  --color-accent: #FF6B6B;
+  --color-accent-alt: #FFA500;
+  
+  --color-bg-light: #F8F9FA;
+  --color-bg-gray: #F5F7FA;
+  
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #5A5A5A;
+  --color-text-light: #8A8A8A;
+  
+  --color-border: #E5E7EB;
+
+  --font-primary: var(--font-primary);
+  --font-heading: var(--font-heading);
+
+  --background-image-gradient-primary: linear-gradient(135deg, #0066FF 0%, #00D4AA 100%);
+  --background-image-gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --background-image-gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --background-image-gradient-hero: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 170, 0.1) 100%);
+  --background-image-hero-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  --shadow-custom-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-custom-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-custom-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  --shadow-custom-3d: 0 20px 60px rgba(0, 102, 255, 0.15);
+  --shadow-custom-hover: 0 12px 40px rgba(0, 102, 255, 0.2);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-bounce-s: bounce-s 2s infinite;
+  --animate-scroll: scroll 1.5s infinite;
+  --animate-fadeInUp: fadeInUp 0.8s ease forwards;
+  --animate-modalSlideIn: modalSlideIn 0.4s ease;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+    25% { transform: translateY(-20px) translateX(10px) scale(1.05); }
+    50% { transform: translateY(-10px) translateX(-15px) scale(0.95); }
+    75% { transform: translateY(-30px) translateX(5px) scale(1.02); }
+  }
+
+  @keyframes bounce-s {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+  }
+
+  @keyframes scroll {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0; }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(-50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .clip-text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+/* Modal handling */
+body.modal-open {
+  overflow: hidden;
+}
+

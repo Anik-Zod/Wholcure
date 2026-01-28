@@ -1,0 +1,99 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      // Update active link logic
+      const sections = document.querySelectorAll('section[id]');
+      const scrollPosition = window.scrollY + 150;
+
+      sections.forEach(section => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const sectionHeight = (section as HTMLElement).offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          if (sectionId) setActiveSection(sectionId);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    if (!isMenuOpen) {
+       document.body.style.overflow = 'hidden';
+    } else {
+       document.body.style.overflow = '';
+    }
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    document.body.style.overflow = '';
+  };
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+      closeMenu();
+      setActiveSection(id);
+    }
+  };
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${isScrolled ? 'bg-white/98 shadow-custom-md' : 'bg-white/95 backdrop-blur-xl shadow-custom-sm'}`} id="navbar">
+        <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+            <div className="logo cursor-pointer">
+                <h1 className="text-3xl font-extrabold m-0 bg-gradient-primary bg-clip-text text-transparent font-heading">Whol<span className="text-secondary">Cure</span></h1>
+            </div>
+            
+            <ul className={`lg:flex items-center gap-8 ${isMenuOpen ? 'fixed top-[70px] left-0 w-full h-[calc(100vh-70px)] bg-white flex flex-col p-8 gap-0 overflow-y-auto shadow-custom-lg transition-all duration-300' : 'hidden lg:flex'} `} id="navMenu">
+                {['home', 'about', 'businesses', 'lms', 'careers', 'why-choose', 'contact'].map((item) => (
+                   <li key={item} className="w-full lg:w-auto">
+                     <a 
+                       href={`#${item}`} 
+                       className={`block w-full py-4 lg:py-2 relative font-medium text-text-primary transition-all duration-300 hover:text-primary 
+                       ${activeSection === item ? 'text-primary' : ''}
+                       after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[3px] after:bg-gradient-primary after:transition-all after:duration-300 after:rounded-sm hover:after:w-full lg:border-none border-b border-border
+                       ${activeSection === item ? 'after:w-full' : ''}
+                       capitalize
+                       `} 
+                       onClick={(e) => handleLinkClick(e, item)}>
+                        {item.replace('-', ' ')}
+                     </a>
+                   </li>
+                ))}
+            </ul>
+            
+            <div className={`flex flex-col gap-[6px] cursor-pointer p-2 lg:hidden group ${isMenuOpen ? 'active' : ''}`} id="navToggle" onClick={toggleMenu}>
+                <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-x-[8px] translate-y-[8px]' : ''}`}></span>
+                <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? '-rotate-45 translate-x-[8px] -translate-y-[8px]' : ''}`}></span>
+            </div>
+        </div>
+    </nav>
+  );
+}
