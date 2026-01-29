@@ -16,12 +16,14 @@ export default function Footer() {
         { name: 'Solar Electronics', href: '#businesses' },
     ];
 
+
+
     return (
         <footer className="footer bg-gradient-to-br from-[#1a1a2e] to-[#16213e] text-white pt-16 pb-8">
             <div className="container max-w-7xl mx-auto px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     <div className="footer-section">
-                        <h3 className="text-3xl font-extrabold mb-4">Whol<span className="text-secondary">Cure</span></h3>
+                        <img src="wholcure.png" alt="wholcure" className="w-60 pb-5 " />
                         <p className="text-white/70 leading-relaxed mb-6">A multi-industry group committed to excellence, innovation, and sustainable growth across eight dynamic sectors.</p>
                         <div className="flex gap-4 mt-6">
                             {['linkedin', 'twitter', 'facebook', 'instagram', 'youtube'].map((social, i) => (

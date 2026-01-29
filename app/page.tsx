@@ -13,9 +13,9 @@ export default function Home() {
       <About />
       <Businesses />
       <LMS />
-      <Careers />
       <WhyChoose />
       <Contact />
+      <Careers />
     </main>
   );
 }

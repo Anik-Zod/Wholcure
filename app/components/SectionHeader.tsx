@@ -19,7 +19,7 @@ export default function SectionHeader({
     return (
         <div className={`text-center mb-16 ${className}`}>
             {badge && (
-                <span className="inline-block px-6 py-2 bg-gradient-hero text-primary rounded-full text-sm font-semibold tracking-wide uppercase mb-4">
+                <span className="inline-block px-6 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold tracking-wide uppercase mb-4">
                     {badge}
                 </span>
             )}

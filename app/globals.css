@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #F15126; /* Orange */
-  --color-primary-dark: #FEB713; /* Yellow */
+  --color-primary:  #fdb614; /* yellow */
+  --color-primary-dark: #88bb40;   /* green */
   --color-primary-light: #88BB40; /* Green */
-  --color-primary-darker: #5DB0DF; /* blue */
+ 
 
   /* --color-primary: #0066FF;
   --color-primary-dark: #0052CC;
   --color-primary-light: #3385FF; */
   
-  --color-secondary: #00D4AA;
-  --color-secondary-dark: #00B894;
+  --color-secondary: #88bb40; /* green */
+  --color-secondary-dark: #399cd6; /* blue */
   
   --color-accent: #FF6B6B;
   --color-accent-alt: #FFA500;
@@ -30,25 +30,25 @@
 
   /* --background-image-gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); */
   --background-image-gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+ 
+  --background-image-gradient-primary-reverse: linear-gradient(135deg, #399cd6 0%, var(--color-primary-dark) 100%); 
+
+
   --background-image-gradient-secondary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   --background-image-gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 
-  /* --background-image-gradient-hero: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 170, 0.1) 100%); */
+  --background-image-gradient-hero: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 170, 0.1) 100%);
   
-  --background-image-gradient-hero: linear-gradient(
-  135deg,
-  rgba(241, 81, 38, 0.20) 0%,    /* soft orange */
-  rgba(254, 183, 19, 0.20) 40%,  /* soft yellow */
-  rgba(136, 187, 64, 0.20) 70%,  /* soft green */
-  rgba(93, 176, 223, 0.10) 100%  /* soft blue */
-);
+
+
 
   --background-image-hero-bg: linear-gradient(135deg, #f5f7fa 0%, var(--color-primary-dark) 300%);
 
   --shadow-custom-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-custom-md: 0 4px 16px rgba(0, 0, 0, 0.12);
   --shadow-custom-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
-  --shadow-custom-3d: 0 20px 60px rgba(0, 102, 255, 0.15);
+  --shadow-custom-3d: 0 20px 60px rgba(253, 182, 20, 0.15);
+
   --shadow-custom-hover: 0 12px 40px rgba(0, 102, 255, 0.2);
 
   --animate-float: float 6s ease-in-out infinite;

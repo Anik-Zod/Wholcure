@@ -89,7 +89,7 @@ export default function Hero() {
                 <div className="relative max-w-4xl mx-auto">
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] text-text-primary opacity-0 translate-y-[30px] animate-fadeInUp">
                         Building Tomorrow's <br />
-                        <span className="bg-gradient-primary bg-clip-text text-transparent">Multi-Industry</span> Excellence
+                        <span className="bg-gradient-primary-reverse bg-clip-text text-transparent">Multi-Industry</span> Excellence
                     </h1>
                     <p className="text-lg md:text-xl text-text-secondary mb-10 max-w-2xl mx-auto opacity-0 translate-y-[30px] animate-fadeInUp [animation-delay:0.2s]">
                         WholCure is a dynamic industrial group operating across 8 diverse sectors,
@@ -97,12 +97,12 @@ export default function Hero() {
                     </p>
 
                     <div className="flex gap-6 justify-center flex-wrap mb-16 opacity-0 translate-y-[30px] animate-fadeInUp [animation-delay:0.4s]">
-                        <a href="#businesses" className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold rounded-xl cursor-pointer transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-primary to-primary-dark  text-white shadow-custom-md hover:translate-y-[-3px] hover:shadow-custom-hover group">
+                        <a href="#businesses" className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold rounded-xl cursor-pointer transition-all duration-300 relative overflow-hidden bg-gradient-primary-reverse  text-white shadow-custom-md hover:translate-y-[-3px] hover:shadow-custom-hover group">
                             <span className="relative z-10">Explore Businesses</span>
                             <i className="fas fa-arrow-right relative z-10"></i>
                             <span className="absolute top-1/2 left-1/2 w-0 h-0 rounded-full bg-white/30 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-600 group-hover:w-[300px] group-hover:h-[300px]"></span>
                         </a>
-                        <a href="#contact" className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold rounded-xl cursor-pointer transition-all duration-300 relative overflow-hidden bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white hover:translate-y-[-3px] hover:shadow-custom-md group">
+                        <a href="#contact" className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold rounded-xl cursor-pointer transition-all duration-300 relative overflow-hidden bg-white text-secondary border-2 border-secondary hover:bg-primary hover:text-white hover:translate-y-[-3px] hover:shadow-custom-md group">
                             <span className="relative z-10">Contact Us</span>
                             <i className="fas fa-envelope relative z-10"></i>
                         </a>
@@ -110,19 +110,19 @@ export default function Hero() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 opacity-0 translate-y-[30px] animate-fadeInUp [animation-delay:0.6s]">
                         <div className="stat-card text-center p-6 bg-white/90 rounded-2xl backdrop-blur-md shadow-custom-sm transition-all duration-300 hover:translate-y-[-5px] hover:shadow-custom-md">
-                            <h3 className="text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.industries}</h3>
+                            <h3 className="text-5xl font-black bg-gradient-primary-reverse bg-clip-text text-transparent mb-2">{counts.industries}</h3>
                             <p className="text-sm text-text-secondary m-0">Industries</p>
                         </div>
                         <div className="stat-card text-center p-6 bg-white/90 rounded-2xl backdrop-blur-md shadow-custom-sm transition-all duration-300 hover:translate-y-[-5px] hover:shadow-custom-md">
-                            <h3 className="text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.projects}+</h3>
+                            <h3 className="text-5xl font-black bg-gradient-primary-reverse bg-clip-text text-transparent mb-2">{counts.projects}+</h3>
                             <p className="text-sm text-text-secondary m-0">Projects Completed</p>
                         </div>
                         <div className="stat-card text-center p-6 bg-white/90 rounded-2xl backdrop-blur-md shadow-custom-sm transition-all duration-300 hover:translate-y-[-5px] hover:shadow-custom-md">
-                            <h3 className="text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.team}</h3>
+                            <h3 className="text-5xl font-black bg-gradient-primary-reverse bg-clip-text text-transparent mb-2">{counts.team}</h3>
                             <p className="text-sm text-text-secondary m-0">Team Members</p>
                         </div>
                         <div className="stat-card text-center p-6 bg-white/90 rounded-2xl backdrop-blur-md shadow-custom-sm transition-all duration-300 hover:translate-y-[-5px] hover:shadow-custom-md">
-                            <h3 className="text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.clients >= 1000 ? '1000+' : counts.clients}</h3>
+                            <h3 className="text-5xl font-black bg-gradient-primary-reverse bg-clip-text text-transparent mb-2">{counts.clients >= 1000 ? '1000+' : counts.clients}</h3>
                             <p className="text-sm text-text-secondary m-0">Happy Clients</p>
                         </div>
                     </div>
@@ -130,8 +130,8 @@ export default function Hero() {
             </div>
 
             <div className="absolute bottom-10 inset-x-0 mx-auto w-fit animate-bounce-s">
-                <div className="w-[30px] h-[50px] border-[3px] border-primary rounded-[20px] flex justify-center pt-2">
-                    <div className="w-[4px] h-[10px] bg-primary rounded-sm animate-scroll"></div>
+                <div className="w-[30px] h-[50px] border-[3px] border-secondary rounded-[20px] flex justify-center pt-2">
+                    <div className="w-[4px] h-[10px] bg-secondary rounded-sm animate-scroll"></div>
                 </div>
             </div>
         </section>
