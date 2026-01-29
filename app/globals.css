@@ -1,9 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0066FF;
+  --color-primary: #F15126; /* Orange */
+  --color-primary-dark: #FEB713; /* Yellow */
+  --color-primary-light: #88BB40; /* Green */
+  --color-primary-darker: #5DB0DF; /* blue */
+
+  /* --color-primary: #0066FF;
   --color-primary-dark: #0052CC;
-  --color-primary-light: #3385FF;
+  --color-primary-light: #3385FF; */
   
   --color-secondary: #00D4AA;
   --color-secondary-dark: #00B894;
@@ -23,11 +28,22 @@
   --font-primary: var(--font-primary);
   --font-heading: var(--font-heading);
 
-  --background-image-gradient-primary: linear-gradient(135deg, #0066FF 0%, #00D4AA 100%);
-  --background-image-gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* --background-image-gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); */
+  --background-image-gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  --background-image-gradient-secondary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   --background-image-gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --background-image-gradient-hero: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 170, 0.1) 100%);
-  --background-image-hero-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  /* --background-image-gradient-hero: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 170, 0.1) 100%); */
+  
+  --background-image-gradient-hero: linear-gradient(
+  135deg,
+  rgba(241, 81, 38, 0.20) 0%,    /* soft orange */
+  rgba(254, 183, 19, 0.20) 40%,  /* soft yellow */
+  rgba(136, 187, 64, 0.20) 70%,  /* soft green */
+  rgba(93, 176, 223, 0.10) 100%  /* soft blue */
+);
+
+  --background-image-hero-bg: linear-gradient(135deg, #f5f7fa 0%, var(--color-primary-dark) 300%);
 
   --shadow-custom-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-custom-md: 0 4px 16px rgba(0, 0, 0, 0.12);

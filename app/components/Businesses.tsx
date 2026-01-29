@@ -77,7 +77,7 @@ export default function Businesses() {
     hover:scale-[1.03]
     hover:rotateX-[6deg]
     hover:rotateY-[6deg]
-    hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)]
+    hover:shadow-custom-3d
   "
             >
 

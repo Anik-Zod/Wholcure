@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Hero() {
@@ -75,12 +77,13 @@ export default function Hero() {
 
     return (
         <section id="home" className="min-h-screen relative flex items-center justify-center pt-20 pb-34 overflow-hidden bg-hero-bg" ref={heroRef}>
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+
                 {/* 3D Elements using Tailwind gradients and filters */}
+            {/* <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                 <div className="hero-3d-element absolute w-[500px] h-[500px] rounded-full filter blur-[80px] opacity-60 animate-float top-[-200px] left-[-200px] bg-[radial-gradient(circle,rgba(0,102,255,0.3)_0%,transparent_70%)]" ref={el => { elementsRef.current[0] = el }}></div>
                 <div className="hero-3d-element absolute w-[400px] h-[400px] rounded-full filter blur-[80px] opacity-60 animate-float bottom-[-150px] right-[-150px] bg-[radial-gradient(circle,rgba(0,212,170,0.3)_0%,transparent_70%)] [animation-delay:2s]" ref={el => { elementsRef.current[1] = el }}></div>
                 <div className="hero-3d-element absolute w-[600px] h-[600px] rounded-full filter blur-[80px] opacity-60 animate-float top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(102,126,234,0.2)_0%,transparent_70%)] [animation-delay:4s]" ref={el => { elementsRef.current[2] = el }}></div>
-            </div>
+            </div> */}
 
             <div className="container relative z-10 max-w-7xl px-8 mx-auto text-center">
                 <div className="relative max-w-4xl mx-auto">
@@ -94,7 +97,7 @@ export default function Hero() {
                     </p>
 
                     <div className="flex gap-6 justify-center flex-wrap mb-16 opacity-0 translate-y-[30px] animate-fadeInUp [animation-delay:0.4s]">
-                        <a href="#businesses" className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold rounded-xl cursor-pointer transition-all duration-300 relative overflow-hidden bg-gradient-primary text-white shadow-custom-md hover:translate-y-[-3px] hover:shadow-custom-hover group">
+                        <a href="#businesses" className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold rounded-xl cursor-pointer transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-primary to-primary-dark  text-white shadow-custom-md hover:translate-y-[-3px] hover:shadow-custom-hover group">
                             <span className="relative z-10">Explore Businesses</span>
                             <i className="fas fa-arrow-right relative z-10"></i>
                             <span className="absolute top-1/2 left-1/2 w-0 h-0 rounded-full bg-white/30 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-600 group-hover:w-[300px] group-hover:h-[300px]"></span>

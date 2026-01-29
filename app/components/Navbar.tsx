@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
@@ -38,9 +40,9 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     if (!isMenuOpen) {
-       document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
     } else {
-       document.body.style.overflow = '';
+      document.body.style.overflow = '';
     }
   };
 
@@ -65,35 +67,41 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${isScrolled ? 'bg-white/98 shadow-custom-md' : 'bg-white/95 backdrop-blur-xl shadow-custom-sm'}`} id="navbar">
-        <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
-            <div className="logo cursor-pointer">
-                <h1 className="text-3xl font-extrabold m-0 bg-gradient-primary bg-clip-text text-transparent font-heading">Whol<span className="text-secondary">Cure</span></h1>
-            </div>
-            
-            <ul className={`lg:flex items-center gap-8 ${isMenuOpen ? 'fixed top-[70px] left-0 w-full h-[calc(100vh-70px)] bg-white flex flex-col p-8 gap-0 overflow-y-auto shadow-custom-lg transition-all duration-300' : 'hidden lg:flex'} `} id="navMenu">
-                {['home', 'about', 'businesses', 'lms', 'careers', 'why-choose', 'contact'].map((item) => (
-                   <li key={item} className="w-full lg:w-auto">
-                     <a 
-                       href={`#${item}`} 
-                       className={`block w-full py-4 lg:py-2 relative font-medium text-text-primary transition-all duration-300 hover:text-primary 
+      <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+
+        <Link
+          href="#home"
+          className="logo flex items-center transition-opacity hover:opacity-80 hover:cursor-pointer hover:scale-105 transition-all "
+          onClick={(e) => handleLinkClick(e, 'home')}
+        >
+
+          <img src="/wholcure.png" alt="WholCure" className="w-[160px] h-[40px]" />
+        </Link>
+
+        <ul className={`lg:flex items-center gap-8 ${isMenuOpen ? 'fixed top-[70px] left-0 w-full h-[calc(100vh-70px)] bg-white flex flex-col p-8 gap-0 overflow-y-auto shadow-custom-lg transition-all duration-300' : 'hidden lg:flex'} `} id="navMenu">
+          {['home', 'about', 'businesses', 'lms', 'careers', 'why-choose', 'contact'].map((item) => (
+            <li key={item} className="w-full lg:w-auto">
+              <Link
+                href={`#${item}`}
+                className={`block w-full py-4 lg:py-2 relative font-medium text-text-primary transition-all duration-300 hover:text-primary 
                        ${activeSection === item ? 'text-primary' : ''}
                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[3px] after:bg-gradient-primary after:transition-all after:duration-300 after:rounded-sm hover:after:w-full lg:border-none border-b border-border
                        ${activeSection === item ? 'after:w-full' : ''}
                        capitalize
-                       `} 
-                       onClick={(e) => handleLinkClick(e, item)}>
-                        {item.replace('-', ' ')}
-                     </a>
-                   </li>
-                ))}
-            </ul>
-            
-            <div className={`flex flex-col gap-[6px] cursor-pointer p-2 lg:hidden group ${isMenuOpen ? 'active' : ''}`} id="navToggle" onClick={toggleMenu}>
-                <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-x-[8px] translate-y-[8px]' : ''}`}></span>
-                <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? '-rotate-45 translate-x-[8px] -translate-y-[8px]' : ''}`}></span>
-            </div>
+                       `}
+                onClick={(e) => handleLinkClick(e, item)}>
+                {item.replace('-', ' ')}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className={`flex flex-col gap-[6px] cursor-pointer p-2 lg:hidden group ${isMenuOpen ? 'active' : ''}`} id="navToggle" onClick={toggleMenu}>
+          <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-x-[8px] translate-y-[8px]' : ''}`}></span>
+          <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? '-rotate-45 translate-x-[8px] -translate-y-[8px]' : ''}`}></span>
         </div>
+      </div>
     </nav>
   );
 }
