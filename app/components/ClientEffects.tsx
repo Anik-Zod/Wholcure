@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 export default function ClientEffects() {
   useEffect(() => {
     // Scroll Animations
-    const animateElements = document.querySelectorAll('.card-3d, .business-card, .course-card, .job-card, .why-card, .contact-card');
+    const animateElements = document.querySelectorAll('.card-3d, .business-card,  .course-card, .job-card, .why-card, .contact-card');
     
     const elementObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {

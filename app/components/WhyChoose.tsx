@@ -21,7 +21,7 @@ export default function WhyChoose() {
                 />
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {reasons.map((reason, idx) => (
-                        <div key={idx} className="bg-white p-10 rounded-2xl shadow-custom-md relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-custom-3d group">
+                        <div key={idx} className="card-3d p-10 rounded-2xl shadow-custom-md relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-custom-3d group">
                             <div className="absolute top-4 right-6 text-6xl font-black text-primary opacity-5 leading-none">{reason.num}</div>
                             <div className="w-[70px] h-[70px] flex items-center justify-center bg-gradient-primary rounded-2xl text-white text-3xl mb-6 shadow-custom-sm">
                                 <i className={`fas ${reason.icon}`}></i>

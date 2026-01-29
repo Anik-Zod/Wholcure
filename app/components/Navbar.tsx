@@ -3,11 +3,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,25 +20,31 @@ export default function Navbar() {
         setIsScrolled(false);
       }
 
-      // Update active link logic
-      const sections = document.querySelectorAll('section[id]');
-      const scrollPosition = window.scrollY + 150;
+      // Update active link logic only if on home page
+      if (pathname === '/') {
+        const sections = document.querySelectorAll('section[id]');
+        const scrollPosition = window.scrollY + 150;
 
-      sections.forEach(section => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        const sectionHeight = (section as HTMLElement).offsetHeight;
-        const sectionId = section.getAttribute('id');
+        sections.forEach(section => {
+          const sectionTop = (section as HTMLElement).offsetTop;
+          const sectionHeight = (section as HTMLElement).offsetHeight;
+          const sectionId = section.getAttribute('id');
 
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          if (sectionId) setActiveSection(sectionId);
-        }
-      });
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            if (sectionId) setActiveSection(sectionId);
+          }
+        });
+      } else {
+        // If not on home page, setActiveSection based on pathname
+        const path = pathname.replace('/', '');
+        if (path) setActiveSection(path);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -52,16 +61,26 @@ export default function Navbar() {
   };
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const offsetTop = element.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
+    if (id === 'careers') {
       closeMenu();
-      setActiveSection(id);
+      return; // Let Next.js Link handle the navigation
+    }
+
+    if (pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(id);
+      if (element) {
+        const offsetTop = element.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        })
+        closeMenu();
+        setActiveSection(id);
+      }
+    } else {
+      // If we're on another page, Link will handle navigation to /#id
+      closeMenu();
     }
   };
 
@@ -69,8 +88,9 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${isScrolled ? 'bg-white/98 shadow-custom-md' : 'bg-white/95 backdrop-blur-xl shadow-custom-sm'}`} id="navbar">
       <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
 
+        {/* logo */}
         <Link
-          href="#home"
+          href={pathname === '/' ? '#home' : '/#home'}
           className="logo flex items-center transition-opacity hover:opacity-80 hover:cursor-pointer hover:scale-105 transition-all "
           onClick={(e) => handleLinkClick(e, 'home')}
         >
@@ -82,7 +102,7 @@ export default function Navbar() {
           {['home', 'about', 'businesses', 'lms', 'careers', 'why-choose', 'contact'].map((item) => (
             <li key={item} className="w-full lg:w-auto">
               <Link
-                href={`#${item}`}
+                href={item === 'careers' ? '/careers' : (pathname === '/' ? `#${item}` : `/#${item}`)}
                 className={`block w-full py-4 lg:py-2 relative font-medium text-text-primary transition-all duration-300 hover:text-primary 
                        ${activeSection === item ? 'text-primary' : ''}
                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[3px] after:bg-gradient-primary after:transition-all after:duration-300 after:rounded-sm hover:after:w-full lg:border-none border-b border-border

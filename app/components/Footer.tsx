@@ -1,19 +1,19 @@
 
 export default function Footer() {
     const footerLinks = [
-        { name: 'Home', href: '#home' },
-        { name: 'About Us', href: '#about' },
-        { name: 'Our Businesses', href: '#businesses' },
-        { name: 'LMS', href: '#lms' },
-        { name: 'Careers', href: '#careers' },
+        { name: 'Home', href: '/#home' },
+        { name: 'About Us', href: '/#about' },
+        { name: 'Our Businesses', href: '/#businesses' },
+        { name: 'LMS', href: '/#lms' },
+        { name: 'Careers', href: '/careers' },
     ];
 
     const businessLinks = [
-        { name: 'Real Estate', href: '#businesses' },
-        { name: 'Constructions', href: '#businesses' },
-        { name: 'Technology', href: '#businesses' },
-        { name: 'Marketing', href: '#businesses' },
-        { name: 'Solar Electronics', href: '#businesses' },
+        { name: 'Real Estate', href: '/#businesses' },
+        { name: 'Constructions', href: '/#businesses' },
+        { name: 'Technology', href: '/#businesses' },
+        { name: 'Marketing', href: '/#businesses' },
+        { name: 'Solar Electronics', href: '/#businesses' },
     ];
 
 

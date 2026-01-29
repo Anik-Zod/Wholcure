@@ -1,14 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary:  #fdb614; /* yellow */
-  --color-primary-dark: #88bb40;   /* green */
-  --color-primary-light: #88BB40; /* Green */
+  --color-primary:  #f05225; /* yellow */
+  --color-primary-dark: #FFC643;   /* green */
+  --color-primary-light: #FFC643; /* Green */
  
-
-  /* --color-primary: #0066FF;
-  --color-primary-dark: #0052CC;
-  --color-primary-light: #3385FF; */
   
   --color-secondary: #88bb40; /* green */
   --color-secondary-dark: #399cd6; /* blue */
@@ -31,7 +27,7 @@
   /* --background-image-gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); */
   --background-image-gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
  
-  --background-image-gradient-primary-reverse: linear-gradient(135deg, #399cd6 0%, var(--color-primary-dark) 100%); 
+  --background-image-gradient-primary-reverse: linear-gradient(135deg, var( --color-secondary-dark) 0%, var(--color-secondary) 100%); 
 
 
   --background-image-gradient-secondary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);

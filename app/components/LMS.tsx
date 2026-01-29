@@ -20,7 +20,7 @@ export default function LMS() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {/* Feature 1 */}
-                    <div className="bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
+                    <div className="card-3d bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
                         <div className="w-[90px] h-[90px] mx-auto mb-6 flex items-center justify-center bg-gradient-secondary rounded-full text-white text-4xl shadow-custom-lg">
                             <i className="fas fa-graduation-cap"></i>
                         </div>
@@ -28,7 +28,7 @@ export default function LMS() {
                         <p className="text-text-secondary">Industry-leading training programs designed by experts to enhance your professional capabilities and career growth.</p>
                     </div>
                     {/* Feature 2 */}
-                    <div className="bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
+                    <div className="card-3d bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
                         <div className="w-[90px] h-[90px] mx-auto mb-6 flex items-center justify-center bg-gradient-secondary rounded-full text-white text-4xl shadow-custom-lg">
                             <i className="fas fa-chart-line"></i>
                         </div>
@@ -36,7 +36,7 @@ export default function LMS() {
                         <p className="text-text-secondary">Comprehensive courses focused on developing critical skills for the modern workplace and emerging technologies.</p>
                     </div>
                     {/* Feature 3 */}
-                    <div className="bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
+                    <div className="card-3d bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
                         <div className="w-[90px] h-[90px] mx-auto mb-6 flex items-center justify-center bg-gradient-secondary rounded-full text-white text-4xl shadow-custom-lg">
                             <i className="fas fa-certificate"></i>
                         </div>
@@ -49,7 +49,7 @@ export default function LMS() {
                     <h3 className="text-3xl font-bold mb-10 text-primary">Featured Training Programs</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {courses.map((course, idx) => (
-                            <div key={idx} className="bg-white p-8 rounded-2xl shadow-custom-sm transition-all duration-300 border-2 border-transparent hover:-translate-y-2 hover:shadow-custom-md hover:border-primary">
+                            <div key={idx} className="card-3d bg-white p-8 rounded-2xl shadow-custom-sm transition-all duration-300 border-2 border-transparent hover:-translate-y-2 hover:shadow-custom-md hover:border-primary">
                                 <div className="w-[60px] h-[60px] flex items-center justify-center bg-gradient-primary rounded-xl text-white text-2xl mb-4">
                                     <i className={`fas ${course.icon}`}></i>
                                 </div>

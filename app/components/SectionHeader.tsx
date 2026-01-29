@@ -1,3 +1,4 @@
+import { twMerge } from "tailwind-merge";
 
 interface SectionHeaderProps {
     badge?: string;
@@ -6,6 +7,8 @@ interface SectionHeaderProps {
     description?: string;
     className?: string;
     light?: boolean;
+    gradient?: string;
+    badgeClass?: string;
 }
 
 export default function SectionHeader({
@@ -14,19 +17,21 @@ export default function SectionHeader({
     highlightedText,
     description,
     className = "",
+    gradient = "",
+    badgeClass = "",
     light = false
 }: SectionHeaderProps) {
     return (
         <div className={`text-center mb-16 ${className}`}>
             {badge && (
-                <span className="inline-block px-6 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold tracking-wide uppercase mb-4">
+                <span className={twMerge("inline-block px-6 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold tracking-wide uppercase mb-4", badgeClass)}>
                     {badge}
                 </span>
             )}
             <h2 className={`text-4xl md:text-5xl font-heading font-bold mb-4 ${light ? 'text-white' : 'text-text-primary'}`}>
                 {title}{" "}
                 {highlightedText && (
-                    <span className="bg-clip-text text-transparent bg-gradient-primary">
+                    <span className={twMerge("bg-clip-text text-transparent bg-gradient-primary", gradient)}>
                         {highlightedText}
                     </span>
                 )}
