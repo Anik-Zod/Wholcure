@@ -1,4 +1,142 @@
+"use client"
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import SectionHeader from './SectionHeader';
+
+interface BusinessProps {
+  icon: string;
+  title: string;
+  desc: string;
+  features: string[];
+}
+
+function BusinessCard({ biz }: { biz: BusinessProps }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const iconRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    const icon = iconRef.current;
+    if (!card) return;
+
+    // Set initial 3D properties via GSAP for consistency
+    gsap.set(card, {
+      transformPerspective: 1000,
+      transformStyle: "preserve-3d"
+    });
+
+    const onMouseMove = (e: MouseEvent) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Exact Logic from ClientEffects.tsx for accurate "lift/tilt" feel
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+
+      gsap.to(card, {
+        rotateX: rotateX,
+        rotateY: rotateY,
+        y: -12, // The "lift" effect
+        scale: 1.04,
+        duration: 0.4,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+
+      if (icon) {
+        gsap.to(icon, {
+          x: (x - centerX) / 12,
+          y: (y - centerY) / 12,
+          z: 40,
+          duration: 0.4,
+          ease: 'power2.out',
+          overwrite: 'auto'
+        });
+      }
+    };
+
+    const onMouseEnter = () => {
+      if (icon) {
+        gsap.to(icon, {
+          rotateY: '+=360',
+          duration: 0.4,
+          ease: 'power2.inOut',
+          overwrite: 'auto'
+        });
+      }
+    };
+
+    const onMouseLeave = () => {
+      gsap.to(card, {
+        rotateY: 0,
+        rotateX: 0,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+
+      if (icon) {
+        gsap.to(icon, {
+          x: 0,
+          y: 0,
+          z: 0,
+          rotateY: 0,
+          duration: 0.4,
+          ease: 'power2.out',
+          overwrite: 'auto'
+        });
+      }
+    };
+
+    card.addEventListener('mouseenter', onMouseEnter);
+    card.addEventListener('mousemove', onMouseMove);
+    card.addEventListener('mouseleave', onMouseLeave);
+
+    return () => {
+      card.removeEventListener('mouseenter', onMouseEnter);
+      card.removeEventListener('mousemove', onMouseMove);
+      card.removeEventListener('mouseleave', onMouseLeave);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className="
+        business-card group p-10 cursor-pointer bg-white rounded-2xl 
+        shadow-custom-md relative
+        transition-shadow duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        transform-gpu transform-style-3d
+        hover:shadow-custom-3d
+      "
+    >
+      <div
+        ref={iconRef}
+        className="w-[70px] h-[70px] flex items-center justify-center bg-gradient-primary rounded-xl text-white text-3xl mb-6 shadow-lg transform-style-3d"
+      >
+        <i className={`fas ${biz.icon}`}></i>
+      </div>
+      <h3 className="text-2xl font-bold mb-4 text-text-primary">{biz.title}</h3>
+      <p className="mb-6 leading-relaxed text-text-secondary">{biz.desc}</p>
+      <div className="flex flex-wrap gap-3 mb-6">
+        {biz.features.map((feat, i) => (
+          <span key={i} className="text-sm px-4 py-2 bg-bg-gray rounded-full text-text-secondary flex items-center gap-2">
+            <i className="fas fa-check text-secondary"></i> {feat}
+          </span>
+        ))}
+      </div>
+      <a href="#contact" className="inline-flex items-center gap-2 text-primary font-semibold transition-all duration-300 group-hover:gap-4 group-hover:text-primary-dark">
+        Learn More <i className="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  );
+}
 
 export default function Businesses() {
   const businesses = [
@@ -49,6 +187,36 @@ export default function Businesses() {
       title: 'WholCure Legal Services',
       desc: 'Professional corporate legal services, business compliance, regulatory advisory, and comprehensive legal solutions for modern enterprises.',
       features: ['Corporate Law', 'Compliance', 'Legal Advisory']
+    },
+    {
+      icon: 'fa-briefcase',
+      title: 'WholCure Business Development',
+      desc: 'Wholcure Business Development helps startups and companies with planning, branding, and strategic growth solutions.',
+      features: ['Business Development', 'Strategic Growth', 'Brand Strategy']
+    },
+    {
+      icon: 'fa-hospital',
+      title: 'WholCure MedHIPPA',
+      desc: 'Wholcure MedHIPPA provides professional medical billing, coding, claims management, and revenue cycle services for healthcare providers and clinics.',
+      features: ['Medical Billing', 'Coding', 'Claims Management']
+    },
+    {
+      icon: 'fa-graduation-cap',
+      title: 'WholCure Institute',
+      desc: 'Wholcure Institute offers professional training and skill development programs for students, freelancers, and future entrepreneurs.',
+      features: ['Professional Training', 'Skill Development', 'Future Entrepreneurs']
+    },
+    {
+      icon: 'fa-spa',
+      title: 'WholCure Ogaglow',
+      desc: "WholCure Ogaglow delivers natural skincare and hair care products focused on healthy skin, strong hair, and organic beauty solutions.",
+      features: ['Natural Skincare', 'Hair Care', 'Organic Beauty']
+    },
+    {
+      icon: 'fa-car',
+      title: "WholCure Moters",
+      desc: "Wholcure Motors specializes in buying and selling reliable vehicles with transparent pricing and customer-focused automotive services.",
+      features: ['Vehicle Buying', 'Vehicle Selling', 'Transparent Pricing']
     }
   ];
 
@@ -63,43 +231,11 @@ export default function Businesses() {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {businesses.map((biz, idx) => (
-            <div
-              key={idx}
-              data-tilt
-              className="
-    business-card group p-10 cursor-pointer bg-white rounded-2xl 
-    shadow-custom-md relative
-
-    transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-    transform-gpu transform-style-3d
-
-    hover:-translate-y-3 
-    hover:scale-[1.03]
-    hover:rotateX-[6deg]
-    hover:rotateY-[6deg]
-    hover:shadow-custom-3d
-  "
-            >
-
-              <div className="w-[70px] h-[70px] flex items-center justify-center bg-gradient-primary rounded-xl text-white text-3xl mb-6 transition-transform duration-600 group-hover:rotate-y-180 group-hover:scale-110">
-                <i className={`fas ${biz.icon}`}></i>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-text-primary">{biz.title}</h3>
-              <p className="mb-6 leading-relaxed text-text-secondary">{biz.desc}</p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                {biz.features.map((feat, i) => (
-                  <span key={i} className="text-sm px-4 py-2 bg-bg-gray rounded-full text-text-secondary flex items-center gap-2">
-                    <i className="fas fa-check text-secondary"></i> {feat}
-                  </span>
-                ))}
-              </div>
-              <a href="#contact" className="inline-flex items-center gap-2 text-primary font-semibold transition-all duration-300 group-hover:gap-4 group-hover:text-primary-dark">
-                Learn More <i className="fas fa-arrow-right"></i>
-              </a>
-            </div>
+            <BusinessCard key={idx} biz={biz} />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
