@@ -61,7 +61,7 @@ export default function Navbar() {
   };
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    if (id === 'careers') {
+    if (id === 'careers' || id === 'lms') {
       closeMenu();
       return; // Let Next.js Link handle the navigation
     }
@@ -102,7 +102,7 @@ export default function Navbar() {
           {['home', 'about', 'businesses', 'lms', 'careers', 'why-choose', 'contact'].map((item) => (
             <li key={item} className="w-full lg:w-auto">
               <Link
-                href={item === 'careers' ? '/careers' : (pathname === '/' ? `#${item}` : `/#${item}`)}
+                href={item === 'careers' ? '/careers' : item === 'lms' ? '/lms' : (pathname === '/' ? `#${item}` : `/#${item}`)}
                 className={`block w-full py-4 lg:py-2 relative font-medium text-text-primary transition-all duration-300 hover:text-primary 
                        ${activeSection === item ? 'text-primary' : ''}
                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[3px] after:bg-gradient-primary after:transition-all after:duration-300 after:rounded-sm hover:after:w-full lg:border-none border-b border-border
@@ -110,7 +110,7 @@ export default function Navbar() {
                        capitalize
                        `}
                 onClick={(e) => handleLinkClick(e, item)}>
-                {item.replace('-', ' ')}
+                {item === 'lms' ? 'LMS' : item.replace('-', ' ')}
               </Link>
             </li>
           ))}

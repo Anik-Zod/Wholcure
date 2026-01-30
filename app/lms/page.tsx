@@ -1,4 +1,4 @@
-import SectionHeader from './SectionHeader';
+import SectionHeader from '../components/SectionHeader';
 
 export default function LMS() {
     const courses = [
