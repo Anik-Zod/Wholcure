@@ -23,10 +23,10 @@ export default function Footer() {
             <div className="container max-w-7xl mx-auto px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     <div className="footer-section">
-                        <img src="wholcure.png" alt="wholcure" className="w-60 pb-5 " />
+                        <img src="White tagline logo.pdf.png" alt="wholcure" className="w-60 pb-5 " />
                         <p className="text-white/70 leading-relaxed mb-6">A multi-industry group committed to excellence, innovation, and sustainable growth across eight dynamic sectors.</p>
                         <div className="flex gap-4 mt-6">
-                            {['linkedin', 'twitter', 'facebook', 'instagram', 'youtube'].map((social, i) => (
+                            {['linkedin', 'tiktok', 'facebook', 'instagram', 'youtube'].map((social, i) => (
                                 <a key={i} href="#" aria-label={social} className="w-[45px] h-[45px] flex items-center justify-center bg-white/10 rounded-lg transition-all duration-300 hover:bg-primary hover:-translate-y-1">
                                     <i className={`fab fa-${social}`}></i>
                                 </a>
@@ -60,7 +60,7 @@ export default function Footer() {
                                 <i className="fas fa-map-marker-alt text-secondary mt-1"></i> 123 Business Blvd, Innovation City
                             </li>
                             <li className="flex items-start gap-3 text-white/70 leading-relaxed">
-                                <i className="fas fa-phone-alt text-secondary mt-1"></i> +1 (555) 123-4567
+                                <i className="fas fa-phone-alt text-secondary mt-1"></i>  +92 328 2296963
                             </li>
                             <li className="flex items-start gap-3 text-white/70 leading-relaxed">
                                 <i className="fas fa-envelope text-secondary mt-1"></i> info@wholcure.com

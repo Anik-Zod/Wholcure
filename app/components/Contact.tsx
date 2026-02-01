@@ -39,7 +39,7 @@ export default function Contact() {
                                 <i className="fas fa-phone-alt"></i>
                             </div>
                             <h4 className="text-xl font-bold mb-3 text-primary">Call Us</h4>
-                            <p className="text-text-secondary leading-relaxed">Main: +1 (555) 123-4567<br />Support: +1 (555) 123-4568<br />Mon-Fri, 9AM-6PM</p>
+                            <p className="text-text-secondary leading-relaxed">Main:  +92 328 2296963<br />Support:  +92 328 2296963<br />Mon-Fri, 9AM-6PM</p>
                         </div>
                         <div className="p-8 bg-bg-light rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-custom-md hover:-translate-y-1">
                             <div className="w-[60px] h-[60px] flex items-center justify-center bg-gradient-primary rounded-xl text-white text-2xl mb-4">
@@ -54,7 +54,7 @@ export default function Contact() {
                             </div>
                             <h4 className="text-xl font-bold mb-3 text-primary">Follow Us</h4>
                             <div className="flex gap-4 mt-2">
-                                {['linkedin', 'twitter', 'facebook', 'instagram'].map((social, i) => (
+                                {['linkedin', 'tiktok', 'facebook', 'instagram','youtube'].map((social, i) => (
                                     <a key={i} href="#" aria-label={social} className="w-[40px] h-[40px] flex items-center justify-center bg-primary text-white rounded-lg transition-all duration-300 hover:bg-secondary hover:-translate-y-1">
                                         <i className={`fab fa-${social}`}></i>
                                     </a>
