@@ -54,7 +54,7 @@ export default function Contact() {
                             </div>
                             <h4 className="text-xl font-bold mb-3 text-primary">Follow Us</h4>
                             <div className="flex gap-4 mt-2">
-                                {['linkedin', 'tiktok', 'facebook', 'instagram'].map((social, i) => (
+                                {['linkedin', 'tiktok', 'facebook', 'instagram','youtube'].map((social, i) => (
                                     <a key={i} href="#" aria-label={social} className="w-[40px] h-[40px] flex items-center justify-center bg-primary text-white rounded-lg transition-all duration-300 hover:bg-secondary hover:-translate-y-1">
                                         <i className={`fab fa-${social}`}></i>
                                     </a>

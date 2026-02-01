@@ -26,7 +26,7 @@ export default function Footer() {
                         <img src="wholcure.png" alt="wholcure" className="w-60 pb-5 " />
                         <p className="text-white/70 leading-relaxed mb-6">A multi-industry group committed to excellence, innovation, and sustainable growth across eight dynamic sectors.</p>
                         <div className="flex gap-4 mt-6">
-                            {['linkedin', 'twitter', 'facebook', 'instagram', 'youtube'].map((social, i) => (
+                            {['linkedin', 'tiktok', 'facebook', 'instagram', 'youtube'].map((social, i) => (
                                 <a key={i} href="#" aria-label={social} className="w-[45px] h-[45px] flex items-center justify-center bg-white/10 rounded-lg transition-all duration-300 hover:bg-primary hover:-translate-y-1">
                                     <i className={`fab fa-${social}`}></i>
                                 </a>
