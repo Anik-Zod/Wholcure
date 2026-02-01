@@ -60,7 +60,7 @@ export default function Footer() {
                                 <i className="fas fa-map-marker-alt text-secondary mt-1"></i> 123 Business Blvd, Innovation City
                             </li>
                             <li className="flex items-start gap-3 text-white/70 leading-relaxed">
-                                <i className="fas fa-phone-alt text-secondary mt-1"></i> +1 (555) 123-4567
+                                <i className="fas fa-phone-alt text-secondary mt-1"></i>  +92 328 2296963
                             </li>
                             <li className="flex items-start gap-3 text-white/70 leading-relaxed">
                                 <i className="fas fa-envelope text-secondary mt-1"></i> info@wholcure.com
