@@ -6,10 +6,11 @@ import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import ApplicationModal from './components/ApplicationModal';
 import ClientEffects from './components/ClientEffects';
+import CustomCursor from './components/CustomCursor';
 import { ModalProvider } from './context/ModalContext';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-primary' });
-const poppins = Poppins({ 
+const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-heading'
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
       <body className={`${inter.variable} ${poppins.variable}`}>
         <ModalProvider>
@@ -38,6 +39,7 @@ export default function RootLayout({
           <BackToTop />
           <ApplicationModal />
           <ClientEffects />
+          <CustomCursor />
         </ModalProvider>
       </body>
     </html>
