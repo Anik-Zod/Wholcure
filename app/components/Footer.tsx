@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="container max-w-7xl mx-auto px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     <div className="footer-section">
-                        <img src="wholcure.png" alt="wholcure" className="w-60 pb-5 " />
+                        <img src="White tagline logo.pdf.png" alt="wholcure" className="w-60 pb-5 " />
                         <p className="text-white/70 leading-relaxed mb-6">A multi-industry group committed to excellence, innovation, and sustainable growth across eight dynamic sectors.</p>
                         <div className="flex gap-4 mt-6">
                             {['linkedin', 'tiktok', 'facebook', 'instagram', 'youtube'].map((social, i) => (
