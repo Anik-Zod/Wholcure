@@ -2,59 +2,44 @@ const Footer2 = () => {
     const linkSections = [
         {
             title: "Quick Links",
-            links: ["Home", "About Us", "Our Businesses", "LMS", "Careers", "Why choose us"]
+            links: [
+                {name:"Home",link:"/"},
+                {name:"About Us",link:"/#about"},
+                {name:"Our Businesses",link:"/#businesses"},
+                {name:"LMS",link:"/lms"},
+                {name:"Careers",link:"/careers"},
+                {name:"Why choose us",link:"/why_choose_us"}
+            ]
         },
         {
             title: "Our Businesses",
-            links: ["Real Estate", "Technology", "Marketing", "Solar Electronics", "MedHIPPA", "Ogaglow"]
+            links: [
+                {name:"Real Estate",link:"/real_estate"},
+                {name:"Technology",link:"/technology"},
+                {name:"Marketing",link:"/marketing"},
+                {name:"Solar Electronics",link:"/solar_electronics"},
+                {name:"MedHIPPA",link:"/medhippa"},
+                {name:"Ogaglow",link:"/ogaglow"}
+            ]
         },
         {
             title: "Legal",
-            links: ["Privacy Policy", "Terms & Conditions", "Returns Policy"]
+            links: [
+                {name:"Privacy Policy",link:"/legal/privacy_policy"},
+                {name:"Terms & Conditions",link:"/legal/terms_&_conditions"},
+                {name:"Returns Policy",link:"/legal/returns_policy"}
+            ]
         },
         {
             title: "FAQ",
-            links: ["General Questions", "Pricing & Plans", "Support & Help"]
+            links: [
+                {name:"General Questions",link:"/faq/general_questions"},
+                {name:"Pricing & Plans",link:"/faq/pricing_&_plans"},
+                {name:"Support & Help",link:"/faq/support_&_help"}
+            ]
         }
     ];
-    const footerLinks = [
-        { name: 'Home', href: '/#home' },
-        { name: 'About Us', href: '/#about' },
-        { name: 'Our Businesses', href: '/#businesses' },
-        { name: 'LMS', href: '/#lms' },
-        { name: 'Careers', href: '/careers' },
-        { name: 'Why choose us', href: '/careers' },
-    ];
 
-    const legalLinks = [
-        { name: 'Privacy Policy', href: '/privacy-policy' },
-        { name: 'Terms & Conditions', href: '/terms-of-use' },
-        { name: 'Returns Policy', href: '/terms-of-use' },
-        // { name: 'Sections', href: '/terms-of-use' },
-    ];
-
-    const FAQLinks = [
-        { name: 'General Questions', href: '/faq' },
-        { name: 'Pricing & Plans', href: '/contact' },
-        { name: 'Support & Help', href: '/contact' },
-    ];
-
-    const businessLinks = [
-        { name: 'Real Estate', href: '/#businesses' },
-        // { name: 'Constructions', href: '/#businesses' },
-        { name: 'Technology', href: '/#businesses' },
-        { name: 'Marketing', href: '/#businesses' },
-        { name: 'Solar Electronics', href: '/#businesses' },
-        // { name: 'Electronics', href: '/#businesses' },
-        // { name: 'Packaging', href: '/#businesses' },
-        // { name: 'Legal Services', href: '/#businesses' },
-        // { name: 'Business Development', href: '/#businesses' },
-        { name: 'MedHIPPA', href: '/#businesses' },
-        // { name: 'Institute', href: '/#businesses' },
-        { name: 'Ogaglow', href: '/#businesses' },
-        // { name: 'Motors', href: '/#businesses' },
-
-    ];
     return (
         <div className="px-6 md:px-16 lg:px-24 xl:px-32 bg-[#17203C]">
             <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-500">
@@ -77,7 +62,7 @@ const Footer2 = () => {
                             <ul className="text-sm space-y-1">
                                 {section.links.map((link, i) => (
                                     <li key={i}>
-                                        <a href={`/${section.title.toLowerCase().replace(/\s/g, '_')}/${link.toLowerCase().replace(/\s/g, '_')}`} className="hover:underline transition text-white/60">{link}</a>
+                                        <a href={link.link} className="hover:underline transition text-white/60">{link.name}</a>
                                     </li>
                                 ))}
                             </ul>
