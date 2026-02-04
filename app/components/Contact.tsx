@@ -1,9 +1,10 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useRef } from 'react';
 import SectionHeader from './SectionHeader';
 
 export default function Contact() {
+    const form = useRef<HTMLFormElement>(null);
     const [success, setSuccess] = useState(false);
 
     const handleSubmit = (e: FormEvent) => {
@@ -27,13 +28,36 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     <div className="flex flex-col gap-6">
-                        <div className="p-8 bg-bg-light rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-custom-md hover:-translate-y-1">
-                            <div className="w-[60px] h-[60px] flex items-center justify-center bg-gradient-primary rounded-xl text-white text-2xl mb-4">
+                        <div className="p-8 bg-slate-50 rounded-3xl transition-all duration-500 hover:bg-white hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 border border-transparent hover:border-slate-100 group">
+                            {/* Icon Header */}
+                            <div className="w-14 h-14 flex items-center justify-center bg-gradient-primary rounded-2xl text-white text-2xl mb-6 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform duration-300">
                                 <i className="fas fa-map-marker-alt"></i>
                             </div>
-                            <h4 className="text-xl font-bold mb-3 text-primary">Visit Us</h4>
-                            <p className="text-text-secondary leading-relaxed">WholCure Corporate Headquarters<br />123 Business Boulevard, Suite 500<br />Innovation City, IC 12345</p>
+
+                            <h4 className="text-2xl font-extrabold mb-6 text-slate-900 tracking-tight">Visit Us</h4>
+
+                            <div className="space-y-6">
+                                {/* Head Office */}
+                                <div className="relative pl-6 border-l-2 border-primary/30 hover:border-primary transition-colors">
+                                    <span className="block text-xs font-bold uppercase tracking-widest text-primary mb-1">Corporate Head Office</span>
+                                    <p className="text-slate-700 font-medium leading-relaxed">
+                                        Sharah-e-Faisal, Karachi, <br />
+                                        <span className="text-slate-500 font-normal">Sindh, Pakistan</span>
+                                    </p>
+                                </div>
+
+                                {/* Sub Office */}
+                                <div className="relative pl-6 border-l-2 border-slate-200 hover:border-blue-400 transition-colors">
+                                    <span className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Corporate Sub Office</span>
+                                    <p className="text-slate-700 font-medium leading-relaxed">
+                                        Qasimabad, Hyderabad, <br />
+                                        <span className="text-slate-500 font-normal">Sindh, Pakistan</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
+
+                        {/* call us  */}
                         <div className="p-8 bg-bg-light rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-custom-md hover:-translate-y-1">
                             <div className="w-[60px] h-[60px] flex items-center justify-center bg-gradient-primary rounded-xl text-white text-2xl mb-4">
                                 <i className="fas fa-phone-alt"></i>
@@ -54,7 +78,7 @@ export default function Contact() {
                             </div>
                             <h4 className="text-xl font-bold mb-3 text-primary">Follow Us</h4>
                             <div className="flex gap-4 mt-2">
-                                {['linkedin', 'tiktok', 'facebook', 'instagram','youtube'].map((social, i) => (
+                                {['linkedin', 'tiktok', 'facebook', 'instagram', 'youtube', 'whatsapp'].map((social, i) => (
                                     <a key={i} href="#" aria-label={social} className="w-[40px] h-[40px] flex items-center justify-center bg-primary text-white rounded-lg transition-all duration-300 hover:bg-secondary hover:-translate-y-1">
                                         <i className={`fab fa-${social}`}></i>
                                     </a>
@@ -65,7 +89,7 @@ export default function Contact() {
 
                     <div className="bg-bg-light p-10 rounded-3xl">
                         {!success ? (
-                            <form id="contactForm" className="flex flex-col gap-6" onSubmit={handleSubmit}>
+                            <form ref={form} id="contactForm" className="flex flex-col gap-6" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="flex flex-col gap-2">
                                         <label htmlFor="contactName" className="font-semibold text-text-primary">Your Name *</label>
