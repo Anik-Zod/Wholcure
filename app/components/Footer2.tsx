@@ -77,7 +77,7 @@ const Footer2 = () => {
                             <ul className="text-sm space-y-1">
                                 {section.links.map((link, i) => (
                                     <li key={i}>
-                                        <a href="#" className="hover:underline transition text-white/60">{link}</a>
+                                        <a href={`/${section.title.toLowerCase().replace(/\s/g, '_')}/${link.toLowerCase().replace(/\s/g, '_')}`} className="hover:underline transition text-white/60">{link}</a>
                                     </li>
                                 ))}
                             </ul>
