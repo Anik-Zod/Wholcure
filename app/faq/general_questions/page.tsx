@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FAQItem = ({ question, answer }) => {
+const FAQItem = ({ question, answer }:{question:String,answer:String}) => {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef(null);
 

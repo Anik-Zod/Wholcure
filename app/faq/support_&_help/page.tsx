@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SupportPage = () => {
   const containerRef = useRef(null);
-  const [openFaq, setOpenFaq] = useState(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -37,19 +37,19 @@ const SupportPage = () => {
   }, []);
 
   const faqs = [
-    { 
-      q: "How can I reset my password?", 
-      a: "Navigate to the login gateway, click 'Forgot Password,' and enter your registered email. A secure reset link will be dispatched to your inbox instantly." 
+    {
+      q: "How can I reset my password?",
+      a: "Navigate to the login gateway, click 'Forgot Password,' and enter your registered email. A secure reset link will be dispatched to your inbox instantly."
     },
-    { 
-      q: "How do I get support for technical issues?", 
-      a: "Our engineering team is reachable 24/7. Submit a detailed ticket via our contact form or email our technical desk for high-priority resolution." 
+    {
+      q: "How do I get support for technical issues?",
+      a: "Our engineering team is reachable 24/7. Submit a detailed ticket via our contact form or email our technical desk for high-priority resolution."
     }
   ];
 
   return (
     <div ref={containerRef} className="min-h-screen bg-[#FBFDFF] text-slate-900 selection:bg-teal-100 overflow-x-hidden pb-20">
-      
+
       {/* Background Ambience */}
       <div className="fixed inset-0 pointer-events-none -z-10">
         <div className="absolute top-[-5%] left-[-5%] w-[700px] h-[700px] bg-teal-500/5 blur-[120px] rounded-full" />
@@ -57,7 +57,7 @@ const SupportPage = () => {
       </div>
 
       <main className="max-w-[1400px] mx-auto px-6 py-20 lg:py-32">
-        
+
         {/* Header Section */}
         <div className="mb-24">
           <p className="hero-text text-teal-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-4">Support Gateway v1.0</p>
@@ -70,12 +70,12 @@ const SupportPage = () => {
         </div>
 
         <div className="support-grid grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* Main Contact Card */}
           <div className="support-card lg:col-span-7 bg-white border border-slate-200 p-10 rounded-[3rem] shadow-sm hover:shadow-xl transition-all duration-500">
             <span className="text-teal-600 font-mono text-xs font-black uppercase tracking-widest">Connect With Us</span>
             <h2 className="text-4xl font-black mt-4 mb-8 text-slate-900 leading-tight italic">Initiate a Request</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="group p-8 bg-slate-50 rounded-[2rem] border border-slate-100 hover:bg-teal-500 hover:border-teal-400 transition-all duration-300">
                 <div className="bg-teal-500 text-white w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-teal-600 transition-colors">
@@ -106,11 +106,11 @@ const SupportPage = () => {
             <div className="bg-slate-950 p-10 rounded-[3rem] text-white overflow-hidden relative group">
               <div className="absolute top-[-20%] right-[-20%] w-64 h-64 bg-teal-500/10 rounded-full blur-3xl group-hover:bg-teal-500/20 transition-all duration-700" />
               <h2 className="text-2xl font-black mb-6 italic tracking-tight">Rapid Resolve (FAQs)</h2>
-              
+
               <div className="space-y-4 relative z-10">
                 {faqs.map((faq, idx) => (
                   <div key={idx} className="border-b border-white/10 pb-4 last:border-0">
-                    <button 
+                    <button
                       onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                       className="flex w-full justify-between items-center text-left gap-4"
                     >
