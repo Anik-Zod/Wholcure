@@ -14,14 +14,16 @@ export default function LMS() {
                 <SectionHeader
                     badge="LEARNING & DEVELOPMENT"
                     title="Learning Management"
-                    highlightedText="System"
+                    highlightedText="System" 
+                    gradient='bg-gradient-primary-reverse'
+                    badgeClass='bg-secondary/20 text-secondary'
                     description="Professional training and skill development for industry excellence"
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {/* Feature 1 */}
                     <div className="card-3d bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
-                        <div className="w-[90px] h-[90px] mx-auto mb-6 flex items-center justify-center bg-gradient-secondary rounded-full text-white text-4xl shadow-custom-lg">
+                        <div className="w-[90px] h-[90px] mx-auto mb-6 flex items-center justify-center bg-gradient-primary-reverse rounded-full text-white text-4xl shadow-custom-lg">
                             <i className="fas fa-graduation-cap"></i>
                         </div>
                         <h3 className="text-2xl font-bold mb-4">Professional Training</h3>
@@ -29,7 +31,7 @@ export default function LMS() {
                     </div>
                     {/* Feature 2 */}
                     <div className="card-3d bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
-                        <div className="w-[90px] h-[90px] mx-auto mb-6 flex items-center justify-center bg-gradient-secondary rounded-full text-white text-4xl shadow-custom-lg">
+                        <div className="w-[90px] h-[90px] mx-auto mb-6 flex items-center justify-center bg-gradient-primary-reverse rounded-full text-white text-4xl shadow-custom-lg">
                             <i className="fas fa-chart-line"></i>
                         </div>
                         <h3 className="text-2xl font-bold mb-4">Skill Development</h3>
@@ -37,7 +39,7 @@ export default function LMS() {
                     </div>
                     {/* Feature 3 */}
                     <div className="card-3d bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
-                        <div className="w-[90px] h-[90px] mx-auto mb-6 flex items-center justify-center bg-gradient-secondary rounded-full text-white text-4xl shadow-custom-lg">
+                        <div className="w-[90px] h-[90px] mx-auto mb-6 flex items-center justify-center bg-gradient-primary-reverse rounded-full text-white text-4xl shadow-custom-lg">
                             <i className="fas fa-certificate"></i>
                         </div>
                         <h3 className="text-2xl font-bold mb-4">Certifications</h3>
@@ -46,11 +48,11 @@ export default function LMS() {
                 </div>
 
                 <div className="text-center mt-16">
-                    <h3 className="text-3xl font-bold mb-10 text-primary">Featured Training Programs</h3>
+                    <h3 className="text-3xl font-bold mb-10 text-secondary">Featured Training Programs</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {courses.map((course, idx) => (
                             <div key={idx} className="card-3d bg-white p-8 rounded-2xl shadow-custom-sm transition-all duration-300 border-2 border-transparent hover:-translate-y-2 hover:shadow-custom-md hover:border-primary">
-                                <div className="w-[60px] h-[60px] flex items-center justify-center bg-gradient-primary rounded-xl text-white text-2xl mb-4">
+                                <div className="w-[60px] h-[60px] flex items-center justify-center bg-gradient-primary-reverse rounded-xl text-white text-2xl mb-4">
                                     <i className={`fas ${course.icon}`}></i>
                                 </div>
                                 <h4 className="text-xl font-bold mb-3">{course.title}</h4>

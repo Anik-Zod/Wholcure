@@ -8,6 +8,7 @@ import ApplicationModal from './components/ApplicationModal';
 import ClientEffects from './components/ClientEffects';
 import CustomCursor from './components/CustomCursor';
 import { ModalProvider } from './context/ModalContext';
+import Footer2 from './components/Footer2';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-primary' });
 const poppins = Poppins({
@@ -35,7 +36,8 @@ export default function RootLayout({
         <ModalProvider>
           <Navbar />
           {children}
-          <Footer />
+          {/* <Footer /> */}
+          <Footer2 />
           <BackToTop />
           <ApplicationModal />
           <ClientEffects />
