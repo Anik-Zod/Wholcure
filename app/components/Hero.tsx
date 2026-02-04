@@ -103,19 +103,19 @@ export default function Hero() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-0 md:mt-16 opacity-0 translate-y-[30px] animate-fadeInUp [animation-delay:0.6s]">
                         <div className="stat-card text-center p-6 bg-white/90 rounded-2xl backdrop-blur-md shadow-custom-sm transition-all duration-300 hover:translate-y-[-5px] hover:shadow-custom-md">
-                            <h3 className="text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.industries}</h3>
+                            <h3 className="text-4xl md:text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.industries}</h3>
                             <p className="text-sm text-text-secondary m-0">Industries</p>
                         </div>
                         <div className="stat-card text-center p-6 bg-white/90 rounded-2xl backdrop-blur-md shadow-custom-sm transition-all duration-300 hover:translate-y-[-5px] hover:shadow-custom-md">
-                            <h3 className="text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.projects}+</h3>
+                            <h3 className="text-4xl md:text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.projects}+</h3>
                             <p className="text-sm text-text-secondary m-0">Projects Completed</p>
                         </div>
                         <div className="stat-card text-center p-6 bg-white/90 rounded-2xl backdrop-blur-md shadow-custom-sm transition-all duration-300 hover:translate-y-[-5px] hover:shadow-custom-md">
-                            <h3 className="text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.team}</h3>
+                            <h3 className="text-4xl md:text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.team}</h3>
                             <p className="text-sm text-text-secondary m-0">Team Members</p>
                         </div>
                         <div className="stat-card text-center p-6 bg-white/90 rounded-2xl backdrop-blur-md shadow-custom-sm transition-all duration-300 hover:translate-y-[-5px] hover:shadow-custom-md">
-                            <h3 className="text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.clients >= 1000 ? '1000+' : counts.clients}</h3>
+                            <h3 className="text-4xl md:text-5xl font-black bg-gradient-primary bg-clip-text text-transparent mb-2">{counts.clients >= 1000 ? '1000+' : counts.clients}</h3>
                             <p className="text-sm text-text-secondary m-0">Happy Clients</p>
                         </div>
                     </div>
