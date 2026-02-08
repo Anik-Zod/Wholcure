@@ -2,9 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
-import ApplicationModal from './components/ApplicationModal';
 import ClientEffects from './components/ClientEffects';
 import CustomCursor from './components/CustomCursor';
 import { ModalProvider } from './context/ModalContext';
@@ -39,7 +37,6 @@ export default function RootLayout({
           {/* <Footer /> */}
           <Footer2 />
           <BackToTop />
-          <ApplicationModal />
           <ClientEffects />
           <CustomCursor />
         </ModalProvider>
