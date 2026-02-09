@@ -1,6 +1,7 @@
 'use client';
 import { FormEvent, useState } from 'react';
 import SectionHeader from './SectionHeader';
+import { contactFormSubmit } from '@/services/contactService';
 
 const Social = [
   { icon: 'linkedin-in', to: "#" },
@@ -13,16 +14,29 @@ const Social = [
 
 export default function ProfessionalContact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API Call
-    setTimeout(() => {
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const result = await contactFormSubmit(data);
       setIsSubmitting(false);
-      setSuccess(true);
-    }, 1500);
+      setSuccess(result.message || "Message Sent!");
+      setTimeout(() => {
+        setSuccess(null);
+      }, 5000);
+    } catch (err: any) {
+      console.error(err);
+      setError(err.message || "Failed to submit application. Please try again.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -113,42 +127,47 @@ export default function ProfessionalContact() {
             <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] border border-slate-100">
               {success ? (
                 <div className="py-20 text-center space-y-4">
-                   <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-3xl">
-                     <i className="fas fa-check" />
-                   </div>
-                   <h3 className="text-2xl font-bold text-slate-900">Message Sent!</h3>
-                   <p className="text-slate-500">We'll get back to you within 24 hours.</p>
-                   <button onClick={() => setSuccess(false)} className="text-primary font-bold text-sm underline">Send another message</button>
+                  <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-3xl">
+                    <i className="fas fa-check" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Message Sent!</h3>
+                  <p className="text-slate-500">{success}</p>
+                  <button onClick={() => setSuccess(null)} className="text-primary font-bold text-sm underline">Send another message</button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-10">
+                  {error && (
+                    <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm font-medium border border-red-100 italic">
+                      {error}
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="relative group">
-                      <input type="text" required placeholder=" " className="peer w-full border-b-2 border-slate-200 py-3 bg-transparent outline-none focus:border-primary transition-all text-slate-900" />
+                      <input type="text" name="fullName" required placeholder=" " className="peer w-full border-b-2 border-slate-200 py-3 bg-transparent outline-none focus:border-primary transition-all text-slate-900" />
                       <label className="absolute left-0 top-3 text-slate-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs font-medium">Full Name</label>
                     </div>
                     <div className="relative group">
-                      <input type="email" required placeholder=" " className="peer w-full border-b-2 border-slate-200 py-3 bg-transparent outline-none focus:border-primary transition-all text-slate-900" />
+                      <input type="email" name="email" required placeholder=" " className="peer w-full border-b-2 border-slate-200 py-3 bg-transparent outline-none focus:border-primary transition-all text-slate-900" />
                       <label className="absolute left-0 top-3 text-slate-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs font-medium">Email Address</label>
                     </div>
                   </div>
 
                   <div className="relative">
-                    <select className="w-full border-b-2 border-slate-200 py-3 bg-transparent outline-none focus:border-primary appearance-none cursor-pointer text-slate-700 font-medium">
-                      <option>General Inquiry</option>
-                      <option>Investment Opportunities</option>
-                      <option>Technical Support</option>
+                    <select name="subject" className="w-full border-b-2 border-slate-200 py-3 bg-transparent outline-none focus:border-primary appearance-none cursor-pointer text-slate-700 font-medium">
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Investment Opportunities">Investment Opportunities</option>
+                      <option value="Technical Support">Technical Support</option>
                     </select>
                     <label className="absolute -top-4 left-0 text-xs text-primary font-medium">Subject Matter</label>
                     <i className="fas fa-chevron-down absolute right-0 top-4 text-xs text-slate-300 pointer-events-none" />
                   </div>
 
                   <div className="relative">
-                    <textarea rows={4} required placeholder=" " className="peer w-full border-b-2 border-slate-200 py-3 bg-transparent outline-none focus:border-primary transition-all resize-none" />
+                    <textarea name="message" rows={4} required placeholder=" " className="peer w-full border-b-2 border-slate-200 py-3 bg-transparent outline-none focus:border-primary transition-all resize-none" />
                     <label className="absolute left-0 top-3 text-slate-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs font-medium">Project Details</label>
                   </div>
 
-                  <button 
+                  <button
                     disabled={isSubmitting}
                     className="group relative w-full py-5 bg-slate-900 overflow-hidden rounded-2xl transition-all hover:bg-primary disabled:opacity-70 disabled:cursor-not-allowed"
                   >

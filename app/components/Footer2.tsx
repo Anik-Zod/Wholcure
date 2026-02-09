@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Footer2 = () => {
     const linkSections = [
         {
@@ -54,7 +56,7 @@ const Social = [
         <div className="px-6 md:px-16 lg:px-24 xl:px-32 bg-[#17203C]">
             <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-500">
                 <div>
-                    <img className="w-34 md:w-40" src="White tagline logo.pdf.png" alt="dummyLogoColored" />
+                    <Image width={100} height={100} className="w-34 md:w-40" src="/White tagline logo.pdf.png" alt="dummyLogoColored" />
                     <p className="max-w-[410px] mt-6 text-white/60">A multi-industry group committed to excellence, innovation, and sustainable growth across eight dynamic sectors.</p>
                     
                     {/* social  */}

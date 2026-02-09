@@ -1,10 +1,9 @@
 "use client"
 
-"use client"
-
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Contact from '@/app/components/Contact';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,7 +40,7 @@ export default function TermsAndConditions() {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-[#FDFEFF] text-slate-900 selection:bg-amber-100 overflow-x-hidden">
-      
+
       {/* Ambient background glow */}
       <div className="fixed inset-0 pointer-events-none -z-10">
         <div className="absolute top-[-5%] right-[-2%] w-[600px] h-[600px] bg-violet-500/5 blur-[120px] rounded-full" />
@@ -49,7 +48,7 @@ export default function TermsAndConditions() {
       </div>
 
       <main className="max-w-[1400px] mx-auto px-6 py-20 lg:py-32">
-        
+
         {/* Cinematic Header */}
         <div className="mb-20">
           <p className="hero-text text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4">Service Agreement v2.0</p>
@@ -57,19 +56,19 @@ export default function TermsAndConditions() {
             Terms & <span className="text-transparent bg-clip-text bg-gradient-primary">Conditions.</span>
           </h1>
           <p className="hero-text text-slate-500 text-xl max-w-3xl leading-relaxed">
-            By using Infotech, you agree to follow the rules outlined below. These terms protect both you as a user and us as a service provider.
+            By using WholCure, you agree to follow the rules outlined below. These terms protect both you as a user and us as a service provider.
           </p>
         </div>
 
         {/* Bento Grid */}
         <div className="bento-grid grid grid-cols-1 md:grid-cols-12 gap-6">
-          
+
           {/* Section 1: Intro Card */}
           <div className="bento-item md:col-span-8 bg-white border border-slate-200 shadow-sm p-10 rounded-[2.5rem] hover:shadow-xl transition-all duration-500">
             <span className="text-primary font-mono text-sm font-bold">01 // ACCEPTANCE</span>
             <h2 className="text-3xl font-bold mt-4 mb-6 text-slate-900">Introduction</h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              Welcome to Infotech. These Terms and Conditions govern your use of our digital ecosystem. By accessing our platform, you confirm that you have read, understood, and agreed to be legally bound by these protocols.
+              Welcome to WholCure. These Terms and Conditions govern your use of our digital ecosystem. By accessing our platform, you confirm that you have read, understood, and agreed to be legally bound by these protocols.
             </p>
           </div>
 
@@ -90,10 +89,10 @@ export default function TermsAndConditions() {
               <p className="text-xl font-medium text-amber-400 mt-2">Aug 26, 2024</p>
             </div>
             <div className="mt-8 relative z-10">
-                <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                    <div className="h-full bg-amber-400 w-full group-hover:scale-x-110 transition-transform duration-1000 origin-left" />
-                </div>
-                <p className="text-slate-400 text-[10px] mt-4 font-mono uppercase tracking-tighter">Agreement Score: Validated</p>
+              <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                <div className="h-full bg-amber-400 w-full group-hover:scale-x-110 transition-transform duration-1000 origin-left" />
+              </div>
+              <p className="text-slate-400 text-[10px] mt-4 font-mono uppercase tracking-tighter">Agreement Score: Validated</p>
             </div>
           </div>
 
@@ -116,11 +115,11 @@ export default function TermsAndConditions() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4">
               <div>
                 <h3 className="font-bold text-slate-900 mb-2">Intellectual Property</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">All content, trademarks, and code are the exclusive property of Infotech. Usage without written consent is strictly prohibited.</p>
+                <p className="text-sm text-slate-500 leading-relaxed">All content, trademarks, and code are the exclusive property of WholCure. Usage without written consent is strictly prohibited.</p>
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 mb-2">Liability Limits</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">Infotech is not liable for indirect damages. Our total liability is capped at the amount paid for services rendered.</p>
+                <p className="text-sm text-slate-500 leading-relaxed">WholCure is not liable for indirect damages. Our total liability is capped at the amount paid for services rendered.</p>
               </div>
             </div>
           </div>
@@ -138,6 +137,10 @@ export default function TermsAndConditions() {
             </button>
           </div>
 
+        </div>
+
+        <div className="mt-32">
+          <Contact />
         </div>
 
         {/* Minimal Footer */}
