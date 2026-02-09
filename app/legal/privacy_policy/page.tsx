@@ -77,7 +77,7 @@ const PrivacyPolicy = () => {
             <span className="text-secondary-dark font-mono text-sm font-bold">01 // INTRODUCTION</span>
             <h2 className="text-3xl font-bold mt-4 mb-6 text-slate-900">Our Commitment</h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              At Infotech, we view privacy not as a hurdle, but as a core product feature. Your data is encrypted, anonymized, and never sold to third parties. We are committed to ethical data practices that put you in control.
+              At WholCure, we view privacy not as a hurdle, but as a core product feature. Your data is encrypted, anonymized, and never sold to third parties. We are committed to ethical data practices that put you in control.
             </p>
           </div>
 
@@ -178,7 +178,7 @@ const PrivacyPolicy = () => {
 
         {/* Footer */}
         <footer className="mt-24 flex flex-col md:flex-row justify-between items-center text-slate-400 font-mono text-[10px] tracking-widest border-t border-slate-200 pt-12 gap-4">
-          <p className="font-bold text-slate-500 uppercase">INFOTECH SYSTEMS &copy; 2026</p>
+          <p className="font-bold text-slate-500 uppercase">WholCure SYSTEMS &copy; 2026</p>
           <div className="flex gap-8 uppercase">
             <a href="#" className="hover:text-secondary-dark transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-secondary-dark transition-colors">Compliance</a>

@@ -40,17 +40,28 @@ const Footer2 = () => {
         }
     ];
 
+    
+const Social = [
+  {icon:'linkedin-in',to:"#"},
+  {icon:'tiktok',to:"#"},
+  {icon:'whatsapp',to:"#"},
+  {icon:'facebook-f',to:"#"},
+  {icon:'instagram',to:"#"},
+  {icon:'youtube',to:"#"}
+  ]
+
     return (
         <div className="px-6 md:px-16 lg:px-24 xl:px-32 bg-[#17203C]">
             <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-500">
                 <div>
                     <img className="w-34 md:w-40" src="White tagline logo.pdf.png" alt="dummyLogoColored" />
                     <p className="max-w-[410px] mt-6 text-white/60">A multi-industry group committed to excellence, innovation, and sustainable growth across eight dynamic sectors.</p>
-
+                    
+                    {/* social  */}
                     <div className="flex gap-4 mt-6">
-                        {['linkedin', 'tiktok', 'facebook', 'instagram', 'youtube'].map((social, i) => (
-                            <a key={i} href="#" aria-label={social} className="py-2 px-2 text-white flex items-center justify-center bg-white/10 rounded-lg transition-all duration-300 hover:bg-primary hover:-translate-y-1">
-                                <i className={`fab fa-${social}`}></i>
+                        {Social.map((s, i) => (
+                            <a key={i} href={s.to} aria-label={s.icon} className="py-2 px-2 text-white flex items-center justify-center bg-white/10 rounded-lg transition-all duration-300 hover:bg-primary hover:-translate-y-1">
+                                <i className={`fab fa-${s.icon}`}></i>
                             </a>
                         ))}
                     </div>
