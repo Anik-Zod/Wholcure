@@ -5,6 +5,19 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
+
+const navItems = [
+  { id: 'home', label: 'Home', href: '/' },
+  { id: 'about', label: 'About', href: '/#about' },
+  { id: 'businesses', label: 'Businesses', href: '/#businesses' },
+  { id: 'lms', label: 'LMS', href: '/lms' },
+  { id: 'careers', label: 'Careers', href: '/careers' },
+  { id: 'why-choose', label: 'Why Choose', href: '/#why-choose' },
+  { id: 'contact', label: 'Contact', href: '/#contact' },
+]
+
+
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -75,6 +88,8 @@ export default function Navbar() {
           top: offsetTop,
           behavior: 'smooth'
         })
+        // Update URL with hash
+        router.push(`/#${id}`, { scroll: false });
         closeMenu();
         setActiveSection(id);
       }
@@ -99,18 +114,18 @@ export default function Navbar() {
         </Link>
 
         <ul className={`lg:flex items-center gap-8 ${isMenuOpen ? 'fixed top-[70px] left-0 w-full h-[calc(100vh-70px)] bg-white flex flex-col p-8 gap-0 overflow-y-auto shadow-custom-lg transition-all duration-300' : 'hidden lg:flex'} `} id="navMenu">
-          {['home', 'about', 'businesses', 'lms', 'careers', 'why-choose', 'contact'].map((item) => (
-            <li key={item} className="w-full lg:w-auto">
+          {navItems.map((item) => (
+            <li key={item.id} className="w-full lg:w-auto">
               <Link
-                href={item === 'careers' ? '/careers' : item === 'lms' ? '/lms' : (pathname === '/' ? `#${item}` : `/#${item}`)}
+                href={item.href}
                 className={`block w-full py-4 lg:py-2 relative font-medium text-text-primary transition-all duration-300 hover:text-primary 
-                       ${activeSection === item ? 'text-primary' : ''}
+                       ${activeSection === item.id ? 'text-primary' : ''}
                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[3px] after:bg-gradient-primary after:transition-all after:duration-300 after:rounded-sm hover:after:w-full lg:border-none border-b border-border
-                       ${activeSection === item ? 'after:w-full' : ''}
+                       ${activeSection === item.id ? 'after:w-full' : ''}
                        capitalize
                        `}
-                onClick={(e) => handleLinkClick(e, item)}>
-                {item === 'lms' ? 'LMS' : item.replace('-', ' ')}
+                onClick={(e) => handleLinkClick(e, item.id)}>
+                {item.label}
               </Link>
             </li>
           ))}

@@ -67,7 +67,7 @@ const ReturnsPolicy = () => {
             <span className="text-teal-600 font-mono text-sm font-bold tracking-tighter italic">01 // PREFACE</span>
             <h2 className="text-3xl font-bold mt-4 mb-6 text-slate-900 leading-tight">Our Promise</h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              At Infotech, we strive to ensure that you are satisfied with our services. This policy outlines a fair and transparent process for requesting a refund or return of our digital services.
+              At WholCure, we strive to ensure that you are satisfied with our services. This policy outlines a fair and transparent process for requesting a refund or return of our digital services.
             </p>
           </div>
 
@@ -98,7 +98,7 @@ const ReturnsPolicy = () => {
               <div>
                 <span className="text-teal-600 font-mono text-[10px] font-black uppercase">Process</span>
                 <h3 className="text-2xl font-bold text-slate-900 mt-2 mb-4 tracking-tight">Request Review</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Contact us at <span className="text-teal-600 underline">infotechcompany85@gmail.com</span> with project details. We review all requests within 48 hours.</p>
+                <p className="text-slate-500 text-sm leading-relaxed">Contact us at <span className="text-teal-600 underline">info@wholCure.com</span> with project details. We review all requests within 48 hours.</p>
               </div>
               <div>
                 <span className="text-teal-600 font-mono text-[10px] font-black uppercase">Payout</span>
@@ -138,7 +138,7 @@ const ReturnsPolicy = () => {
             <div>
                <h2 className="text-2xl font-bold mb-4">Financial Disclaimer</h2>
                <p className="text-slate-400 text-xs leading-relaxed uppercase tracking-tighter">
-                 We are a service provider, not a financial institution. Infotech assumes no responsibility for indirect financial loss or transaction damages.
+                 We are a service provider, not a financial institution. WholCure assumes no responsibility for indirect financial loss or transaction damages.
                </p>
             </div>
             <button className="mt-8 bg-teal-500 text-white py-4 rounded-2xl font-bold hover:bg-teal-400 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-teal-900/20">
