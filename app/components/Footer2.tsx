@@ -44,7 +44,6 @@ const Footer2 = () => {
         }
     ];
 
-    
 const Social = [
   {icon:'linkedin-in',to:"#"},
   {icon:'tiktok',to:"#"},
@@ -61,7 +60,6 @@ const Social = [
                     <Image className="w-34 md:w-40" src="/White tagline logo.pdf.png" width={100} height={100} alt="dummyLogoColored" />
                     <p className="max-w-[410px] mt-6 text-white/60">A multi-industry group committed to excellence, innovation, and sustainable growth across eight dynamic sectors.</p>
                     
-                    {/* social  */}
                     <div className="flex gap-4 mt-6">
                         {Social.map((s, i) => (
                             <a key={i} href={s.to} aria-label={s.icon} className="py-2 px-2 text-white flex items-center justify-center bg-white/10 rounded-lg transition-all duration-300 hover:bg-primary hover:-translate-y-1">
