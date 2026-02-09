@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-
 const Footer2 = () => {
     const linkSections = [
         {
