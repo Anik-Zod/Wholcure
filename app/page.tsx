@@ -3,11 +3,14 @@ import About from './components/About';
 import Businesses from './components/businesses/Businesses';
 import WhyChoose from './components/WhyChoose';
 import Contact from './components/Contact';
+import { getUiData } from '@/services/uiService';
 
-export default function Home() {
+export default async function Home() {
+  const data = await getUiData()
+
   return (
     <main>
-      <Hero />
+      <Hero data={data}/>
       <About />
       <Businesses />
       <WhyChoose />
