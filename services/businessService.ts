@@ -1,14 +1,33 @@
 export async function getAllBusiness() {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+    const response = await fetch(`${baseUrl}/businesses`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const responseData = await response.json();
+    return responseData.data || [];
+  } catch (error) {
+    console.error("Error fetching businesses:", error);
+    return [];
+  }
+}
+
+
+
+export async function getBusinessById(id:string) { 
     try {
         const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-        const response = await fetch(`${baseUrl}/businesses`);
+        
+        const response=await fetch(`${baseUrl}/businesses/${id}`)
+    
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+           console.log(`Status: ${response.status}`);
         }
         const responseData = await response.json();
-        return responseData.data || [];
+   return responseData.data; 
     } catch (error) {
-        console.error("Error fetching businesses:", error);
-        return [];
+        console.error("Fetch Error:", error);
+        return null;
     }
 }

@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import SectionHeader from '../SectionHeader';
+import SectionHeader from '../components/SectionHeader';
 import { Business } from '@/types';
 import Link from 'next/link';
 import Businesses from './Businesses';
@@ -122,7 +122,7 @@ export default function BusinessCard({ biz }: { biz: Business }) {
             </div>
             <h3 className="text-2xl font-bold mb-4 text-text-primary">{biz.title}</h3>
             <p className="mb-6 leading-relaxed text-text-secondary">{biz.description}</p>
-          
+  
             <div className="flex flex-wrap gap-3 mb-6">
                 {biz.tags.map((feat, i) => (
                     <span key={i} className="text-sm px-4 py-2 bg-bg-gray rounded-full text-text-secondary flex items-center gap-2">
@@ -131,7 +131,7 @@ export default function BusinessCard({ biz }: { biz: Business }) {
                 ))}
             </div>
            
-            <Link href={`.../../busniesses/${biz._id}`} className="inline-flex items-center gap-2 text-primary font-semibold transition-all duration-300 group-hover:gap-4 group-hover:text-primary-dark">
+            <Link href={`/businesses/${biz._id}`} className="inline-flex items-center gap-2 text-primary font-semibold transition-all duration-300 group-hover:gap-4 group-hover:text-primary-dark">
                 Learn More <i className="fas fa-arrow-right"></i>
             </Link>
          
