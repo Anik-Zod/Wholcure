@@ -30,3 +30,13 @@ export interface SalaryRange {
   min: number
   max: number
 }
+
+
+export interface Ui {
+  _id: string
+  industries: string
+  projectsCompleted: string
+  happyClients: string
+  teamMembers: string
+  __v: number
+}

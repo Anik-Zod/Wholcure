@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Footer2 = () => {
     const linkSections = [
         {
@@ -40,7 +42,6 @@ const Footer2 = () => {
         }
     ];
 
-    
 const Social = [
   {icon:'linkedin-in',to:"#"},
   {icon:'tiktok',to:"#"},
@@ -54,10 +55,9 @@ const Social = [
         <div className="px-6 md:px-16 lg:px-24 xl:px-32 bg-[#17203C]">
             <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-500">
                 <div>
-                    <img className="w-34 md:w-40" src="White tagline logo.pdf.png" alt="dummyLogoColored" />
+                    <Image className="w-34 md:w-40" src="/White tagline logo.pdf.png" width={100} height={100} alt="dummyLogoColored" />
                     <p className="max-w-[410px] mt-6 text-white/60">A multi-industry group committed to excellence, innovation, and sustainable growth across eight dynamic sectors.</p>
                     
-                    {/* social  */}
                     <div className="flex gap-4 mt-6">
                         {Social.map((s, i) => (
                             <a key={i} href={s.to} aria-label={s.icon} className="py-2 px-2 text-white flex items-center justify-center bg-white/10 rounded-lg transition-all duration-300 hover:bg-primary hover:-translate-y-1">
