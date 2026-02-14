@@ -2,7 +2,8 @@ export async function getUiData() {
     try {
         const baseUrl = process.env.NEXT_PUBLIC_API_URL;
         const response = await fetch(`${baseUrl}/admin/getUi`, {
-            cache: 'no-store', // optional but recommended
+            cache: 'force-cache',
+            next: { revalidate: 60 }// optional but recommended
         });
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

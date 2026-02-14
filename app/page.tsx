@@ -5,15 +5,17 @@ import WhyChoose from './components/WhyChoose';
 import Contact from './components/Contact';
 import Businesses from './businesses/Businesses';
 import { getUiData } from '@/services/uiService';
+import MeetMyTeem from './components/MeetMyTeem';
 
 export default async function Home() {
   const data = await getUiData()
   return (
     <main>
       <Hero data={data} />
-      <About />
-    <Businesses/>
-      <WhyChoose />
+      <About data={data} />
+       <Businesses/>
+      <WhyChoose data={data} />
+      <MeetMyTeem/>
       <Contact />
     </main>
   );

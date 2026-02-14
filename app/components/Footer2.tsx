@@ -3,6 +3,12 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const Footer2 = () => {
   const footerRef = useRef<HTMLDivElement>(null);
@@ -49,7 +55,7 @@ const Footer2 = () => {
   ];
 
   const Social = [
-    { icon: "linkedin-in", to: "#" },
+    { icon: "linkedin-in", to: "https://www.linkedin.com/company/wholcure/posts/?feedView=all" },
     { icon: "tiktok", to: "#" },
     { icon: "whatsapp", to: "#" },
     { icon: "facebook-f", to: "#" },
@@ -57,10 +63,15 @@ const Footer2 = () => {
     { icon: "youtube", to: "#" }
   ];
 
-  /* ================= GSAP ENTRY ANIMATION ================= */
+  /* ================= GSAP VIEWPORT ANIMATION ================= */
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".footer-item", {
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 85%", // Triggers when the top of footer reaches 85% of viewport
+          toggleActions: "play none none none", // Plays once when entering
+        },
         opacity: 0,
         y: 40,
         duration: 0.8,
@@ -82,7 +93,7 @@ const Footer2 = () => {
   };
 
   return (
-    <div ref={footerRef} className="px-6 md:px-16 lg:px-24 xl:px-32 bg-[#17203C]">
+    <footer ref={footerRef} className="px-6 md:px-16 lg:px-24 xl:px-32 bg-[#17203C] overflow-hidden">
       <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-500">
         
         {/* Logo & Description */}
@@ -104,7 +115,7 @@ const Footer2 = () => {
                 key={i}
                 href={s.to}
                 aria-label={s.icon}
-                className="footer-item py-2 px-2 text-white flex items-center justify-center bg-white/10 rounded-lg"
+                className="py-2 px-2 text-white flex items-center justify-center bg-white/10 rounded-lg"
                 onMouseEnter={(e) => hoverIn(e.currentTarget)}
                 onMouseLeave={(e) => hoverOut(e.currentTarget)}
               >
@@ -144,7 +155,7 @@ const Footer2 = () => {
       <p className="footer-item py-4 text-center text-sm md:text-base text-white/60">
         Copyright 2025 © <a href="#" className="underline">WholCure</a> All Right Reserved.
       </p>
-    </div>
+    </footer>
   );
 };
 

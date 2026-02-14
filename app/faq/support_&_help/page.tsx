@@ -3,6 +3,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'lucide-react';
+
+import { useRouter } from 'next/navigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,7 +49,7 @@ const SupportPage = () => {
       a: "Our engineering team is reachable 24/7. Submit a detailed ticket via our contact form or email our technical desk for high-priority resolution."
     }
   ];
-
+const router = useRouter()
   return (
     <div ref={containerRef} className="min-h-screen bg-[#FBFDFF] text-slate-900 selection:bg-teal-100 overflow-x-hidden pb-20">
 
@@ -85,10 +88,12 @@ const SupportPage = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2 group-hover:text-white">Contact Form</h3>
                 <p className="text-sm text-slate-500 group-hover:text-teal-50 mb-6 font-medium leading-relaxed">Fill out our integrated form for tracked ticket resolution.</p>
-                <button className="text-teal-600 font-black text-xs uppercase tracking-widest group-hover:text-white">Open Form →</button>
+                
+                
+                <button onClick={()=>router.push('/#contact')}  className="text-teal-600 font-black text-xs uppercase tracking-widest group-hover:text-white">Open Form →</button>
               </div>
 
-              <div className="group p-8 bg-slate-50 rounded-[2rem] border border-slate-100 hover:bg-indigo-600 hover:border-indigo-500 transition-all duration-300">
+              <div className="group px-4 py-8 bg-slate-50 rounded-[2rem] border border-slate-100 hover:bg-indigo-600 hover:border-indigo-500 transition-all duration-300">
                 <div className="bg-indigo-600 text-white w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-indigo-600 transition-colors">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 012-2V7a2 2 0 01-2-2H5a2 2 0 01-2 2v10a2 2 0 012 2z" />
@@ -96,7 +101,7 @@ const SupportPage = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2 group-hover:text-white">Email Us</h3>
                 <p className="text-sm text-slate-500 group-hover:text-indigo-50 mb-6 font-medium leading-relaxed">Direct correspondence to our cloud support desk for deep dives.</p>
-                <a href="mailto:info@WholCuresolutions.cloud" className="text-indigo-600 font-black text-xs uppercase tracking-widest group-hover:text-white underline-offset-4 underline">info@WholCuresolutions.cloud</a>
+                <a href="mailto:info@WholCuresolutions.cloud" className="text-indigo-600 text-[10px] font-black text-xs uppercase tracking-widest group-hover:text-white underline-offset-4 underline">info@holcuresolutions.cloud</a>
               </div>
             </div>
           </div>

@@ -5,6 +5,7 @@ export interface Business {
   tags: string[]
   logo: string
   details: string
+  websiteLink?:string
   createdAt?: string
   updatedAt?: string
   __v?: number

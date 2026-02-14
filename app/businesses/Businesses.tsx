@@ -11,8 +11,8 @@ export default async function Businesses() {
   // console.log(businesses);
   if(!businesses) return <div>Loading...</div>
   return (
-    <section id="businesses" className="py-24 bg-white relative overflow-hidden">
-      <div className="container max-w-7xl mx-auto px-8">
+    <section id="businesses" className=" py-14 lg:py-24 bg-bg-light relative overflow-hidden">
+      <div className="container max-w-7xl mx-auto px-4 md:px-8">
         <SectionHeader
           badge="OUR PORTFOLIO"
           title="Our"

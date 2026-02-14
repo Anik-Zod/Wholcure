@@ -40,7 +40,7 @@ export default function ProfessionalContact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#FAFBFC] relative overflow-hidden">
+    <section id="contact" className=" px-4 py-14 lg:py-24 bg-bg-light relative overflow-hidden">
       <SectionHeader
         description="Let's discuss how we can help your business grow."
         title="Contact"
@@ -51,11 +51,11 @@ export default function ProfessionalContact() {
       {/* Subtle Grid Overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
 
-      <div className="container max-w-7xl mx-auto px-6 relative z-10">
+      <div className="container max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
 
           {/* Left Column: Brand & Info */}
-          <div className="lg:w-5/12 space-y-12">
+          <div className="lg:w-5/12 space-y-12 px-5">
             <div>
               <span className="text-primary font-bold tracking-[0.3em] text-xs border-l-4 border-primary pl-4 mb-4 block uppercase">
                 Established Excellence
@@ -124,7 +124,7 @@ export default function ProfessionalContact() {
 
           {/* Right Column: The Form */}
           <div className="lg:w-7/12 w-full">
-            <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] border border-slate-100">
+            <div className="bg-white rounded-[2.5rem] p-6 md:p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] border border-slate-100">
               {success ? (
                 <div className="py-20 text-center space-y-4">
                   <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-3xl">
@@ -154,9 +154,19 @@ export default function ProfessionalContact() {
 
                   <div className="relative">
                     <select name="subject" className="w-full border-b-2 border-slate-200 py-3 bg-transparent outline-none focus:border-primary appearance-none cursor-pointer text-slate-700 font-medium">
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Investment Opportunities">Investment Opportunities</option>
-                      <option value="Technical Support">Technical Support</option>
+                      <option value="General Inquiry">WholCure Real Estate</option>
+                      <option value="Investment Opportunities">WholCure Constructions</option>
+                      <option value="Technical Support">WholCure Technology</option>
+                      <option value="Technical Support">WholCure Marketing</option>
+                      <option value="Technical Support">WholCure Electronics</option>
+                      <option value="Technical Support">WholCure Solar Electronics</option>
+                      <option value="Technical Support">WholCure Packaging</option>
+                      <option value="Technical Support">WholCure Legal Services</option>
+                      <option value="Technical Support">WholCure Business Development</option>
+                      <option value="Technical Support">WholCure MedHIPPA</option>
+                      <option value="Technical Support">WholCure Institute</option>
+                      <option value="Technical Support">WholCure Ogaglow</option>
+                      <option value="Technical Support">WholCure Motors</option>
                     </select>
                     <label className="absolute -top-4 left-0 text-xs text-primary font-medium">Subject Matter</label>
                     <i className="fas fa-chevron-down absolute right-0 top-4 text-xs text-slate-300 pointer-events-none" />

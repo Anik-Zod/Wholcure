@@ -98,7 +98,7 @@ const ReturnsPolicy = () => {
               <div>
                 <span className="text-teal-600 font-mono text-[10px] font-black uppercase">Process</span>
                 <h3 className="text-2xl font-bold text-slate-900 mt-2 mb-4 tracking-tight">Request Review</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Contact us at <span className="text-teal-600 underline">info@wholCure.com</span> with project details. We review all requests within 48 hours.</p>
+                <p className="text-slate-500 text-sm leading-relaxed">Contact us at <span className="text-teal-600 underline">info@wholcure.com</span> with project details. We review all requests within 48 hours.</p>
               </div>
               <div>
                 <span className="text-teal-600 font-mono text-[10px] font-black uppercase">Payout</span>

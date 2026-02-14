@@ -56,7 +56,7 @@ export default function TermsAndConditions() {
             Terms & <span className="text-transparent bg-clip-text bg-gradient-primary">Conditions.</span>
           </h1>
           <p className="hero-text text-slate-500 text-xl max-w-3xl leading-relaxed">
-            By using wholCure, you agree to follow the rules outlined below. These terms protect both you as a user and us as a service provider.
+            By using WholCure, you agree to follow the rules outlined below. These terms protect both you as a user and us as a service provider.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export default function TermsAndConditions() {
             <span className="text-primary font-mono text-sm font-bold">01 // ACCEPTANCE</span>
             <h2 className="text-3xl font-bold mt-4 mb-6 text-slate-900">Introduction</h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              Welcome to wholCure. These Terms and Conditions govern your use of our digital ecosystem. By accessing our platform, you confirm that you have read, understood, and agreed to be legally bound by these protocols.
+              Welcome to WholCure. These Terms and Conditions govern your use of our digital ecosystem. By accessing our platform, you confirm that you have read, understood, and agreed to be legally bound by these protocols.
             </p>
           </div>
 
@@ -115,11 +115,11 @@ export default function TermsAndConditions() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4">
               <div>
                 <h3 className="font-bold text-slate-900 mb-2">Intellectual Property</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">All content, trademarks, and code are the exclusive property of wholCure. Usage without written consent is strictly prohibited.</p>
+                <p className="text-sm text-slate-500 leading-relaxed">All content, trademarks, and code are the exclusive property of WholCure. Usage without written consent is strictly prohibited.</p>
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 mb-2">Liability Limits</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">wholCure is not liable for indirect damages. Our total liability is capped at the amount paid for services rendered.</p>
+                <p className="text-sm text-slate-500 leading-relaxed">WholCure is not liable for indirect damages. Our total liability is capped at the amount paid for services rendered.</p>
               </div>
             </div>
           </div>

@@ -107,7 +107,7 @@ export default function BusinessCard({ biz }: { biz: Business }) {
         <div
             ref={cardRef}
             className="
-        business-card group p-10 cursor-pointer bg-white rounded-2xl 
+        business-card group px-6 py-8 md:p-10 cursor-pointer bg-white rounded-2xl 
         shadow-custom-md relative
         transition-shadow duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
         transform-gpu transform-style-3d

@@ -1,92 +1,148 @@
-"use server";
-
 import React from "react";
-import { getBusinessById } from "@/services/businessService";
-const Page = async ({
-  params,
-}: {
-  params: Promise<{ businessId: string }>;
-}) => {
-  const { businessId } = await params;
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import { getAllBusiness, getBusinessById } from "@/services/businessService";
+import { ChevronLeft, Mail, Share2, Globe, MapPin } from "lucide-react"; // Optional: Add Lucide icons
+import Link from "next/link";
+import { Business } from "@/types";
 
+export async function generateStaticParams(){
+  const allbusiness = await getAllBusiness();
+  return allbusiness.map((business:Business)=>(
+    {
+      businessId:business._id
+    }
+  ))
+}
+
+export const revalidate = 60;
+
+
+const BusinessDetailPage = async ({ params }: {params:Promise<{businessId:string}>}) => {
+  const { businessId } = await params;
   
-  let items: any = [];
+  let business: Business | null = null;
 
   try {
-    items = await getBusinessById(businessId);
-  } catch (err) {
-    items = [];
+    business = await getBusinessById(businessId);
+  } catch (error) {
+    console.error(`Failed to fetch business ${businessId}:`, error);
   }
 
+  if (!business) notFound();
+
   return (
-    <div className="min-h-screen mt-20 bg-[#F8F9FA]">
-      <main className="max-w-7xl mx-auto px-6 py-16">
-        <div className="flex flex-col lg:flex-row gap-12">
-          <div className="flex-1">
-            <div className="space-y-8">
-              {/* Logo */}
-              <div className="w-40 h-40 bg-white rounded-3xl shadow-sm border border-gray-100 flex items-center justify-center p-4">
-                <img
-                  src={items.logo}
-                  alt="Logo"
-                  className="w-full object-contain"
+    <div className="min-h-screen bg-[#F8FAFC]">
+      {/* Top Navigation Bar */}
+      <nav className="sticky top-0 z-30 w-full bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <Link href="/directory" className="flex items-center text-sm font-medium text-slate-500 hover:text-slate-900 transition">
+            <ChevronLeft className="w-4 h-4 mr-1" />
+            Back to Directory
+          </Link>
+          <div className="flex gap-3">
+            <button className="p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
+              <Share2 className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <main className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          {/* LEFT COLUMN: Main Content */}
+          <div className="lg:col-span-8 space-y-12">
+            
+            {/* Header Section */}
+            <section className="space-y-6">
+              <div className="relative w-24 h-24 rounded-2xl overflow-hidden border-2 border-white shadow-xl bg-white">
+                <Image
+                  src={business.logo}
+                  alt={business.title}
+                  fill
+                  className="object-contain p-2"
                 />
               </div>
-
-              <div>
-                <h1 className="text-5xl font-extrabold text-[#1A1A1A] tracking-tight leading-tight">
-                  {items.title}
-                </h1>
-
-                <div className="h-1.5 w-20 bg-slate-900 mt-4 rounded-full"></div>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-3">
-                {/* items? aur tags? lagane se error nahi aayega agar data missing ho */}
-                {items?.tags?.map((tag: string, index: number) => (
-                  <span
-                    key={index}
-                    className="px-5 py-2 rounded-xl bg-[#1A1A1A] text-white text-[11px] font-bold uppercase tracking-widest"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <p className="text-2xl text-gray-500 font-light leading-relaxed">
-                {items.description}
-              </p>
-
-              <div className="pt-6 border-t border-gray-200">
-                <h4 className="text-xl font-bold mb-3 text-slate-800">
-                  Business Details
-                </h4>
-                <p className="text-gray-600 leading-loose">{items.details}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full lg:w-[400px]">
-            <div className="sticky top-10 mt-10 bg-[#0F172A] rounded-[2.5rem] p-10 text-white shadow-2xl border border-white/5">
-              <h3 className="text-2xl font-bold mb-4">Ready to Connect?</h3>
-              <p className="text-gray-400 mb-10 text-sm leading-relaxed">
-                Get direct access to {items.title}'s specialized premium
-                services.
-              </p>
-
+              
               <div className="space-y-4">
-                {/* link to contact us  */}
-                <button className="w-full py-5 rounded-2xl bg-white text-black font-bold hover:bg-slate-200 transition-all duration-300 shadow-xl">
-                  Send Inquiry
-                </button>
+                <h1 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+                  {business.title}
+                </h1>
+                
+                <div className="flex flex-wrap gap-2">
+                  {business.tags?.map((tag) => (
+                    <span key={tag} className="px-3 py-1 text-[11px] uppercase tracking-wider font-bold rounded-md bg-secondary-dark text-white">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="text-xl text-slate-500 font-light leading-relaxed max-w-2xl">
+                  {business.description}
+                </p>
+              </div>
+            </section>
+
+            <hr className="border-slate-200" />
+
+            {/* Detailed Content */}
+            <article className="prose prose-slate prose-lg max-w-none">
+              <h3 className="text-slate-900 font-semibold">Overview</h3>
+              <div className="text-slate-600 leading-relaxed whitespace-pre-line">
+                {business.details}
+              </div>
+            </article>
+          </div>
+
+          {/* RIGHT COLUMN: Action Sidebar */}
+          <aside className="lg:col-span-4">
+            <div className="sticky top-28 space-y-6">
+              
+              {/* Primary Action Card */}
+              <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Connect</h3>
+                <p className="text-slate-500 text-sm mb-6">
+                  Ready to explore opportunities or inquire about services?
+                </p>
+                
+                <div className="space-y-3">
+                  <Link href={"/#contact"}>
+                                    <button className="w-full flex items-center justify-center gap-2 bg-secondary-dark text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-blue-200">
+                    <Mail className="w-4 h-4" />
+                    Contact Business
+                  </button>
+                  </Link>
+                  <Link href={business.websiteLink || "/"}>
+                  <button className="w-full flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold py-4 rounded-xl transition-all">
+                    <Globe className="w-4 h-4" />
+                    Visit Website
+                  </button>
+                  </Link>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
+                   <div className="flex items-center gap-3 text-sm text-slate-600">
+                      <MapPin className="w-4 h-4 text-slate-400" />
+                      <span>Remote / Global</span>
+                   </div>
+                </div>
+              </div>
+
+              {/* Verified Badge / Trust Element */}
+              <div className="px-4 py-3 bg-emerald-50 rounded-2xl flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-medium text-emerald-800 uppercase tracking-wide">
+                  Verified Business Entity
+                </span>
               </div>
             </div>
-          </div>
+          </aside>
+
         </div>
       </main>
     </div>
   );
 };
 
-export default Page;
+export default BusinessDetailPage;
