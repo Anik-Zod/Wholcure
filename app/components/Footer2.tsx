@@ -10,6 +10,8 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+
+
 const Footer2 = () => {
   const footerRef = useRef<HTMLDivElement>(null);
 
@@ -55,12 +57,12 @@ const Footer2 = () => {
   ];
 
   const Social = [
-    { icon: "linkedin-in", to: "https://www.linkedin.com/company/wholcure/posts/?feedView=all" },
-    { icon: "tiktok", to: "#" },
-    { icon: "whatsapp", to: "#" },
-    { icon: "facebook-f", to: "#" },
-    { icon: "instagram", to: "#" },
-    { icon: "youtube", to: "#" }
+  { icon: 'linkedin-in', to: "https://www.linkedin.com/company/wholcure/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BYF28u2PPT36NC9rbL3NWEg%3D%3D" },
+  { icon: 'tiktok', to: "https://www.tiktok.com/@wholcure?_r=1&_t=ZS-93wEmqvioq5" },
+  { icon: 'whatsapp', to: "https://wa.me/+923282296963" },
+  { icon: 'facebook-f', to: "https://www.facebook.com/WholCure?rdid=APVwOdfz6R85WFkB&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1GdLegajdW%2F#" },
+  { icon: 'instagram', to: "https://www.instagram.com/wholcure" },
+  { icon: 'youtube', to: "https://youtube.com/@wholcure?si=5Yr7n_9-Yz1cAFyP" }
   ];
 
   /* ================= GSAP VIEWPORT ANIMATION ================= */
