@@ -14,7 +14,7 @@ function ContactUs() {
     const [selected, setSelected] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [success, setSuccess] = useState(null);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string|null>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
