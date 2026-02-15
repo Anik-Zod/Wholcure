@@ -103,7 +103,7 @@ export default function Hero({ data }: { data: Ui }) {
                         Excellence
                     </h1>
                     <p className="hidden md:block text-lg md:text-xl text-text-secondary mb-10 max-w-2xl mx-auto opacity-0 translate-y-[30px] animate-fadeInUp [animation-delay:0.2s]">
-                        WholCure is a dynamic industrial group operating across 8 diverse sectors,
+                        WholCure is a dynamic industrial group operating across {data.industries} diverse sectors,
                         delivering innovative solutions and driving growth through quality, trust, and expertise.
                     </p>
 

@@ -6,11 +6,13 @@ import Contact from './components/Contact';
 import Businesses from './businesses/Businesses';
 import { getUiData } from '@/services/uiService';
 import MeetMyTeem from './components/MeetMyTeem';
+import GSAP from './components/GSAP';
 
 export default async function Home() {
   const data = await getUiData()
   return (
     <main>
+      {/* <GSAP/> */}
       <Hero data={data} />
       <About data={data} />
        <Businesses/>

@@ -1,9 +1,9 @@
-import React from "react"
-import SectionHeader from "./SectionHeader";
+import React from "react";
+import { Membar } from "../components/Membar";
+import SectionHeader from "../components/SectionHeader";
 import { getALlMembers } from "@/services/membarService";
-import { Membar } from "./Membar";
 
-async function MeetMyTeem() {
+async function Page() {
   const members = await getALlMembers();
   console.log("our membars = ", members)
   return (
@@ -24,4 +24,4 @@ async function MeetMyTeem() {
   );
 }
 
-export default MeetMyTeem;
+export default Page;

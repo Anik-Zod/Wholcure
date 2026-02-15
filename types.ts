@@ -41,3 +41,22 @@ export interface Ui {
   teamMembers: string
   __v: number
 }
+
+
+export interface SocialMidea {
+  _id?: string
+  name?: string
+  photo?: string
+  role?: string
+  email?: string
+  address?: string
+  socialMedia?: SocialMedum[]
+  description?: string
+  __v?: number
+}
+
+export interface SocialMedum {
+  _id: string
+  name: string
+  url: string
+}

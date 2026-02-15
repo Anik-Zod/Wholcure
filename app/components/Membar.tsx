@@ -1,3 +1,4 @@
+import { SocialMidea } from '@/types';
 import React from 'react';
 
 type SocialMedia = {
@@ -5,19 +6,14 @@ type SocialMedia = {
   link: string;
 };
 
-interface MembarProps {
-  name: string;
-  image: string;
-  description: string;
-  socialMedia: SocialMedia[];
-}
 
-export function Membar({ name, socialMedia, image, description }: MembarProps) {
+
+export function Membar({ name, socialMedia, photo, role }: SocialMidea) {
   return (
     <div className="relative max-w-100 w-full  h-96 rounded-3xl overflow-hidden group bg-gray-900 shadow-2xl">
       {/* Profile Image */}
       <img
-        src={image}
+        src={photo}
         alt={name}
         className="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
       />
@@ -28,19 +24,19 @@ export function Membar({ name, socialMedia, image, description }: MembarProps) {
       {/* Info Area */}
       <div className="absolute bottom-0 p-6 w-full">
         <h3 className="text-white text-xl font-bold">{name}</h3>
-        <p className="text-gray-400 text-sm mb-4">{description}</p>
+        <p className="text-gray-400 text-sm mb-4">{role}</p>
 
         {/* Social Icons Container */}
         <div className="flex gap-4">
-          {socialMedia.map((social, index) => (
+          {socialMedia?.map((social, index) => (
             <a
               key={index}
-              href={social.link}
+              href={social.url}
               target="_blank"
               className="text-white/70 hover:text-white transition-colors"
             >
-              <div className="w-6 h-6">
-                 {social.icon}
+              <div className="size-7">
+                 <i className={`fab fa-${social?.name}`}></i>
               </div>
             </a>
           ))}

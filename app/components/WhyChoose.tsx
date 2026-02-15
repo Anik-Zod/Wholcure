@@ -14,6 +14,7 @@ export default function WhyChoose({ data }: { data: Ui }) {
       num: "02",
       icon: "fa-users-cog",
       title: "Professional Team",
+      url: "/membars",
       desc: "Our team comprises industry veterans, certified professionals, and innovative thinkers dedicated to excellence and continuous improvement in everything we do.",
     },
     {
@@ -70,6 +71,13 @@ export default function WhyChoose({ data }: { data: Ui }) {
               <p className="text-text-secondary leading-relaxed">
                 {reason.desc}
               </p>
+              {
+                reason.url && (
+                  <a href={reason.url} className="text-orange-500 text-md font-semibold  w-full flex justify-end">
+                    See More
+                  </a>
+                )
+              }
             </div>
           ))}
         </div>

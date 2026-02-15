@@ -4,14 +4,14 @@ import SectionHeader from "./SectionHeader";
 export default function About({ data }: { data: Ui }) {
   return (
     <section id="about" className="py-24 relative overflow-hidden bg-bg-light">
-      <div className="container max-w-7xl mx-auto px-4">
+      <div className="container max-w-7xl mx-auto px-4 md:px-8">
         <SectionHeader
           badge="WHO WE ARE"
           title="About"
           highlightedText="WholCure"
           description="Leading the way in multi-industry excellence and innovation"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-16 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-16 ">
           {/* About Card 1 */}
           <div className=" bg-white rounded-2xl p-8 shadow-custom-md transition-all duration-300 relative transform-style-3d hover:-translate-y-2 hover:shadow-custom-3d text-center group">
             <div className="w-[80px] h-[80px] mx-auto mb-6 flex items-center justify-center bg-gradient-primary rounded-2xl text-white text-3xl shadow-custom-md">
