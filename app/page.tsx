@@ -7,6 +7,7 @@ import Businesses from './businesses/Businesses';
 import { getUiData } from '@/services/uiService';
 import MeetMyTeem from './components/MeetMyTeem';
 
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const data = await getUiData()

@@ -5,6 +5,8 @@ import SectionHeader from '../components/SectionHeader';
 import { Job } from '@/types';
 import JobCard from './jobCard';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Careers() {
     const jobs = await getAllJobs();
 

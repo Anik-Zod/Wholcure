@@ -3,6 +3,8 @@ import { Membar } from "../components/Membar";
 import SectionHeader from "../components/SectionHeader";
 import { getALlMembers } from "@/services/membarService";
 
+export const dynamic = 'force-dynamic';
+
 async function Page() {
   const members = await getALlMembers();
   console.log("our membars = ", members)

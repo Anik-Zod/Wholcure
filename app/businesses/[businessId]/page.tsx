@@ -6,17 +6,8 @@ import { ChevronLeft, Mail, Share2, Globe, MapPin } from "lucide-react"; // Opti
 import Link from "next/link";
 import { Business } from "@/types";
 
-export async function generateStaticParams(){
-  const allbusiness = await getAllBusiness();
-  return allbusiness.map((business:Business)=>(
-    {
-      businessId:business._id
-    }
-  ))
-}
 
-export const revalidate = 60;
-
+export const dynamic = 'force-dynamic';
 
 const BusinessDetailPage = async ({ params }: {params:Promise<{businessId:string}>}) => {
   const { businessId } = await params;
