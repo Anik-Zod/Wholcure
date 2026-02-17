@@ -1,7 +1,7 @@
 export async function getALlMembers() {
     try {
         const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-        const response = await fetch(`${baseUrl}/members`);
+        const response = await fetch(`${baseUrl}/members`, { cache: "no-store" });
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

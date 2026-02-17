@@ -1,7 +1,7 @@
 export async function getAllBusiness() {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-    const response = await fetch(`${baseUrl}/businesses`);
+    const response = await fetch(`${baseUrl}/businesses`, { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -19,7 +19,7 @@ export async function getBusinessById(id:string) {
     try {
         const baseUrl = process.env.NEXT_PUBLIC_API_URL;
         
-        const response=await fetch(`${baseUrl}/businesses/${id}`)
+        const response=await fetch(`${baseUrl}/businesses/${id}`, { cache: "no-store" })
     
         if (!response.ok) {
            console.log(`Status: ${response.status}`);
