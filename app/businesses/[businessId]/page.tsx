@@ -45,68 +45,63 @@ const BusinessDetailPage = async ({ params }: { params: Promise<{ businessId: st
       <div className="pt-14 bg-white shadow-sm overflow-hidden">
         <div className="max-w-[1250px] mx-auto">
           {/* Cover Photo */}
-        <div className="relative aspect-[3/1] h-38 w-full bg-slate-200 overflow-hidden sm:rounded-b-xl group">
-          {biz.coverPhoto || biz.images?.[0] ? (
-            <Image src={biz.coverPhoto || biz.images?.[0] || ""} alt="Cover" fill className="object-cover" priority />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-r from-slate-300 to-slate-400" />
-          )}
-          <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all pointer-events-none" />
-        </div>
+          <div className="relative aspect-[3/1] w-full bg-slate-200 overflow-hidden sm:rounded-b-lg group h-30">
+            {biz.coverPhoto || biz.images?.[0] ? (
+              <Image src={biz.coverPhoto || biz.images?.[0] || ""} alt="Cover" fill className="object-cover" priority />
+            ) : (
+              <div className="w-full h-full bg-linear-to-r from-slate-300 to-slate-400" />
+            )}
+            <div className="absolute inset-0 bg-black/10 transition-colors pointer-events-none" />
 
-          {/* Identity & CTAs */}
-          <div className="px-4 py-6 flex flex-col md:flex-row items-center md:items-end gap-6 -mt-12 md:-mt-16 pb-8">
+          </div>
+
+          {/* Identity Bar */}
+          <div className="px-4 flex flex-col items-center md:flex-row md:items-end gap-0 md:gap-6 -mt-12 md:-mt-10 pb-4 border-b border-gray-100">
             {/* Profile Picture */}
-            <div className="relative w-40 h-40 rounded-full bg-white p-1 shadow-lg ring-4 ring-white z-10">
-              <div className="w-full h-full relative rounded-full overflow-hidden border border-gray-100 bg-white">
+            <div className="relative w-40 h-40 rounded-full bg-white p-1 shadow-md ring-4 ring-white z-10">
+              <div className="w-full h-full relative rounded-full overflow-hidden border border-gray-100 bg-white group cursor-pointer hover:brightness-95 transition">
                 <Image src={biz.logo} alt={biz.title} fill className="object-contain p-4" />
+                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <button className="absolute bottom-2 right-4 w-9 h-9 bg-[#E4E6EB] border border-gray-200 rounded-full flex items-center justify-center text-black shadow-sm hover:bg-gray-200 transition">
+                <i className="fas fa-camera text-sm" />
+              </button>
+            </div>
+
+            {/* Title & Category Area */}
+            <div className="flex-1 text-center md:text-left pt-6 md:pt-14 pb-4">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1c1e21] tracking-tight flex items-center justify-center md:justify-start gap-2">
+                {biz.title}
+                {biz.isVerified && (
+                  <i className="fas fa-check-circle text-[#1877F2] text-2xl lg:text-3xl" title="Verified" />
+                )}
+              </h1>
+              <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mt-2 text-[#65676B] font-semibold">
+                <span>{biz.category || "Professional WholCure Entity"}</span>
+                <span className="w-1 h-1 rounded-full bg-gray-400" />
+                <span>{biz.tags?.[0] ? `#${biz.tags[0]}` : "Verified Business"}</span>
               </div>
             </div>
 
-            {/* Title & Tags */}
-            <div className="flex-1 text-center md:text-left space-y-2 mb-2">
-              <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-1">
-              {biz.category && (
-                <span className="text-xs font-black text-primary uppercase tracking-widest">{biz.category}</span>
-              )}
-              {biz.tags?.map(tag => (
-                <span key={tag} className="text-xs font-bold text-gray-400 tracking-wide">#{tag}</span>
-              ))}
-            </div>
-            <h1 className=" pt-10 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1c1e21] tracking-tight">
-              {biz.title}
-              {biz.isVerified && (
-                <i className="fas fa-check-circle text-primary ml-2 text-2xl align-middle" title="Verified Business" />
-              )}
-            </h1>
-            <p className="text-gray-500 font-semibold text-lg max-w-xl">{biz.description}</p>
-          </div>
-
-            {/* Action Buttons */}
-            <div className="flex gap-2 mb-2 w-full md:w-auto">
+            {/* CTA Container */}
+            <div className="flex items-center gap-2 mb-4 w-full md:w-auto px-4 md:px-0">
               <Link href="/#contact" className="flex-1 md:flex-none">
-                <button className="w-full px-6 py-2.5 bg-primary text-white font-bold rounded-lg hover:opacity-95 shadow-md flex items-center justify-center gap-2">
-                  <Mail className="w-4 h-4" />
+                <button className="w-full px-6 py-2 bg-[#1877F2] text-white font-bold rounded-lg hover:bg-[#166FE5] shadow-sm flex items-center justify-center gap-2 transition-colors">
+                  <Mail className="w-4 h-4 fill-white" />
                   Contact Now
                 </button>
               </Link>
-              <Link href={biz.website || "#"} target="_blank" className="flex-1 md:flex-none">
-                <button className="w-full px-6 py-2.5 bg-[#E4E6EB] text-[#050505] font-bold rounded-lg hover:bg-[#D8DADF] flex items-center justify-center gap-2">
-                  <Globe className="w-4 h-4" />
-                  Visit Website
-                </button>
-              </Link>
+              <button className="px-6 py-2 bg-[#E4E6EB] text-[#050505] font-bold rounded-lg hover:bg-[#D8DADF] flex items-center justify-center gap-2 transition-colors flex-1 md:flex-none">
+                <Share2 className="w-4 h-4" />
+                Share Page
+              </button>
+              <button className="p-2.5 bg-[#E4E6EB] text-black rounded-lg hover:bg-gray-200 hidden sm:block">
+                <i className="fas fa-caret-down" />
+              </button>
             </div>
           </div>
 
-          {/* Tab-like nav (Visual only) */}
-          <div className="px-4 border-t border-gray-100 flex gap-4 overflow-x-auto">
-            {['About', 'Services', 'Photos', 'Reviews', 'Partners'].map((tab, i) => (
-              <button key={tab} className={`px-4 py-4 text-sm font-bold border-b-4 transition-all ${i === 0 ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:bg-gray-50'}`}>
-                {tab}
-              </button>
-            ))}
-          </div>
+
         </div>
       </div>
 
