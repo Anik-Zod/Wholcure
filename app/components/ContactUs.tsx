@@ -1,5 +1,5 @@
 "use client"
-import { contactFormSubmit } from '@/services/contactService';
+import { contactFormSubmit, ContactFormData } from '@/services/contactService';
 import React, { useState } from 'react'
 
 const businesses = [
@@ -32,7 +32,7 @@ function ContactUs() {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            const result = await contactFormSubmit(data);
+            const result = await contactFormSubmit(data as unknown as ContactFormData);
             setSuccess(result.message || "Message Sent!");
             // Reset form
             setSelected("");
@@ -72,12 +72,14 @@ function ContactUs() {
                         <FormInput label="Email Address" name="email" type="email" />
                     </div>
 
+                    <FormInput label="Subject" name="subject" type="text" />
+
                     {/* CUSTOM SELECT */}
                     <div className="relative group">
                         <label className="absolute -top-5 left-0 text-[10px] text-primary font-black uppercase tracking-[0.2em]">Department of Interest</label>
                         
                         {/* CRITICAL: Hidden input so the value is sent with the form */}
-                        <input type="hidden" name="subject" value={selected} required />
+                        <input type="hidden" name="business" value={selected} required />
 
                         <div
                             onClick={() => setIsOpen(!isOpen)}

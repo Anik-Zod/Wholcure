@@ -1,6 +1,12 @@
+export interface ContactFormData {
+    fullName: string;
+    email: string;
+    subject: string;
+    business: string;
+    message: string;
+}
 
-
-export async function contactFormSubmit(data: any) {
+export async function contactFormSubmit(data: ContactFormData) {
     try {
         const baseUrl = process.env.NEXT_PUBLIC_API_URL;
         const response = await fetch(`${baseUrl}/admin/contactFormSend`,

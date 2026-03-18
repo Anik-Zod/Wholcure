@@ -2,10 +2,17 @@ export interface Business {
   _id: string
   title: string
   description: string
-  tags: string[]
+  category?: string
+  tags?: string[]
   logo: string
-  details: string
-  websiteLink?:string
+  coverPhoto?: string
+  location?: string
+  isVerified?: boolean
+  details: any
+  whyWeBest?: string
+  partners?: string[]
+  website?: string
+  images?: string[]
   createdAt?: string
   updatedAt?: string
   __v?: number

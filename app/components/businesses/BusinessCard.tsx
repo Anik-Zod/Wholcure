@@ -124,14 +124,14 @@ export default function BusinessCard({ biz }: { biz: Business }) {
             <p className="mb-6 leading-relaxed text-text-secondary">{biz.description}</p>
           
             <div className="flex flex-wrap gap-3 mb-6">
-                {biz.tags.map((feat, i) => (
+                {biz.tags?.map((feat, i) => (
                     <span key={i} className="text-sm px-4 py-2 bg-bg-gray rounded-full text-text-secondary flex items-center gap-2">
                         <i className="fas fa-check text-secondary"></i> {feat}
                     </span>
                 ))}
             </div>
            
-            <Link href={`.../../busniesses/${biz._id}`} className="inline-flex items-center gap-2 text-primary font-semibold transition-all duration-300 group-hover:gap-4 group-hover:text-primary-dark">
+            <Link href={`/businesses/${biz._id}`} className="inline-flex items-center gap-2 text-primary font-semibold transition-all duration-300 group-hover:gap-4 group-hover:text-primary-dark">
                 Learn More <i className="fas fa-arrow-right"></i>
             </Link>
          
