@@ -178,3 +178,7 @@
 body.modal-open {
   overflow: hidden;
 }
+.hero-ring {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/20 shadow-[0_0_15px_rgba(79,209,197,0.1)];
+  pointer-events: none;
+}

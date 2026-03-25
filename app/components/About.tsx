@@ -60,7 +60,7 @@ export default function About({ data }: { data: Ui }) {
             </h3>
             <p className="text-text-secondary mb-4">
               WholCure is more than just a business conglomerate – we are a
-              catalyst for industrial transformation. Operating across {data.industries} {" "}
+              catalyst for industrial transformation. Operating across {data?.industries} {" "}
               dynamic sectors, we bring together expertise, innovation, and
               dedication to deliver solutions that matter.
             </p>
@@ -73,7 +73,7 @@ export default function About({ data }: { data: Ui }) {
             </p>
             <ul className="mt-8 space-y-3">
               {[
-                `Multi-industry expertise spanning ${data.industries} sectors`,
+                `Multi-industry expertise spanning ${data?.industries} sectors`,
                 "Commitment to quality and excellence",
                 "Innovation-driven solutions",
                 "Long-term strategic partnerships",

@@ -3,6 +3,8 @@ import { Business } from "../types";
 export async function getAllBusiness(): Promise<Business[]> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+    console.log("aaa")
+    console.log(baseUrl);
     const response = await fetch(`${baseUrl}/businesses`, { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
