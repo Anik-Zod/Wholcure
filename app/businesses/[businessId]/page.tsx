@@ -8,6 +8,8 @@ import { Business } from "@/types";
 import { ListStart } from 'lucide-react';
 import { Briefcase } from "lucide-react";
 import { Building2 } from "lucide-react"; 
+import ServicesSection from "./ServicesSection";
+import FeaturesSection from "../FeaturesSection";
 export const dynamic = "force-dynamic";
 
 const BusinessDetailPage = async ({
@@ -206,76 +208,9 @@ const BusinessDetailPage = async ({
     </div>
 
     {/* Features Grid */}
-    <div className="grid md:grid-cols-3 gap-8">
-      
-      {/* --- CARD 1: FEATURES --- */}
-      <div className="group relative p-10 rounded-[2em] bg-white  shadow-gray-200/50 hover:-translate-y-2 border border-gray-100 overflow-hidden card-3d  shadow-custom-md transition-all duration-300 h hover:shadow-custom-3d group">
-        {/* Background Number 01 */}
-        <div className="absolute top-4 right-8 text-7xl font-black text-primary/10 leading-none select-none">
-          01
-        </div>
+<ServicesSection biz={biz}/>
+<FeaturesSection biz={biz}/>
 
-        <div className="w-[70px] h-[70px] p-4 flex items-center justify-center bg-gradient-primary rounded-2xl text-white mb-8 shadow-lg shadow-primary/30 transition-transform group-hover:scale-110">
-          <ListStart className="w-full h-full" />
-        </div>
-        
-        <h4 className="text-2xl font-bold text-gray-900 mb-4">Features</h4>
-        <ul className="space-y-3">
-          {biz.details.features.map((item: string, index: number) => (
-            <li key={index} className="flex items-center gap-3 text-gray-600 text-sm group/li">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="group-hover/li:text-primary transition-colors">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* --- CARD 2: SERVICES --- */}
-          <div className="group relative p-10 rounded-[2em] bg-white  shadow-gray-200/50 hover:-translate-y-2 border border-gray-100 overflow-hidden card-3d  shadow-custom-md transition-all duration-300 h hover:shadow-custom-3d group">
-        {/* Background Number 02 */}
-        <div className="absolute top-4 right-8 text-7xl font-black text-primary/10 leading-none select-none">
-          02
-        </div>
-
-        <div className="w-[70px] h-[70px] p-4 flex items-center justify-center bg-gradient-primary rounded-2xl text-white mb-8 shadow-lg shadow-primary/30 transition-transform group-hover:scale-110">
-          <Briefcase className="w-full h-full" />
-        </div>
-        
-        <h4 className="text-2xl font-bold text-gray-900 mb-4">Services</h4>
-        <ul className="space-y-3">
-          {biz.details.services.map((item: string, index: number) => (
-            <li key={index} className="flex items-center gap-3 text-gray-600 text-sm group/li">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="group-hover/li:text-primary transition-colors">{item}</span>
-            </li>
-          ))}
-        </ul>
-    
-      </div>
-
-      {/* --- CARD 3: INDUSTRIES --- */}
-        <div className="group relative p-10 rounded-[2em] bg-white  shadow-gray-200/50 hover:-translate-y-2 border border-gray-100 overflow-hidden card-3d  shadow-custom-md transition-all duration-300 h hover:shadow-custom-3d group">
-        {/* Background Number 03 */}
-        <div className="absolute top-4 right-8 text-7xl font-black text-primary/10 leading-none select-none">
-          03
-        </div>
-
-        <div className="w-[70px] h-[70px] p-4 flex items-center justify-center bg-gradient-primary rounded-2xl text-white mb-8 shadow-lg shadow-primary/30 transition-transform group-hover:scale-110">
-          <Building2 className="w-full h-full" />
-        </div>
-        
-        <h4 className="text-2xl font-bold text-gray-900 mb-4">Industries</h4>
-        <ul className="space-y-3">
-          {biz.details.industries.map((item: string, index: number) => (
-            <li key={index} className="flex items-center gap-3 text-gray-600 text-sm group/li">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="group-hover/li:text-primary transition-colors">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-    </div>
   </div>
 </section>
 
