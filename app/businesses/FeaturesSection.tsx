@@ -1,7 +1,7 @@
 import { Briefcase, Building2, ListStart } from 'lucide-react'
 import React from 'react'
-
-const FeaturesSection = ({biz}) => {
+import { Business } from "@/types";
+const FeaturesSection = ({biz}: { biz: Business }) => {
   return (
  <div>
       <div className="grid md:grid-cols-2 gap-8 mt-5">

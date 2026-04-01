@@ -3,7 +3,7 @@
 import { Ui } from '@/types';
 import { useEffect, useRef, useState } from 'react';
 import HeroOrbit from './HeroOrbit';
-import { SparkleIcon, StarIcon } from 'lucide-react';
+import { Dot, SparkleIcon, Sparkles } from 'lucide-react';
 
 export default function Hero({ data }: { data: Ui }) {
     const [counts, setCounts] = useState({
@@ -59,37 +59,74 @@ export default function Hero({ data }: { data: Ui }) {
     }, [data]);
 
     // Common style for all rings to ensure visibility
-const ringStyle = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f05225]/30 shadow-[0_0_20px_rgba(240,82,37,0.3),_inset_0_0_15px_rgba(240,82,37,0.2)] [mask-image:radial-gradient(closest-side,transparent_95%,black_100%)] bg-primary/10";
+const ringStyle = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f05225]/30 shadow-[0_0_20px_rgba(240,82,37,0.3),_inset_0_0_15px_rgba(240,82,37,0.2)] [mask-image:radial-gradient(closest-side,transparent_95%,black_100%)] ";
     return (
         <section ref={heroRef} id="home" className="relative min-h-screen w-full flex items-center justify-center bg-hero-bg overflow-hidden pt-20 pb-34 px-6 text-center">
             
             {/* --- 1. INTERACTIVE BACKGROUND (Orbit & Stars) --- */}
-            <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)] pointer-events-none">
-                
-                {/* Static Background Rings */}
-                <div className={`size-[620px] ${ringStyle}`}></div>
-                <div className={`size-[820px] ${ringStyle}`}></div>
-                <div className={`size-[1020px] ${ringStyle}`}></div>
-                <div className={`size-[1220px] ${ringStyle}`}></div>
+        {/* --- 1. INTERACTIVE BACKGROUND (Orbit & Stars) --- */}
+<div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)] pointer-events-none">
+    
+    {/* Static Background Rings */}
+    <div className={`size-[620px] ${ringStyle}`}></div>
+    <div className={`size-[820px] ${ringStyle}`}></div>
+    <div className={`size-[1020px] ${ringStyle}`}></div>
+    <div className={`size-[1220px] ${ringStyle}`}></div>
 
-                {/* Stars and Orbits */}
-                <HeroOrbit size={800} rotation={-72} shouldOrbit orbitDuration="48s" shouldSpin spinDuration="10s">
-                    <StarIcon className="size-28 text-primary opacity-80" />
-                </HeroOrbit>
+    {/* Orbit 1 (Size 800) - 4 Icons */}
+ 
+    {/* Orbit 2 (Size 590) - 3 Icons */}
+    <HeroOrbit size={590} rotation={98} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
+      
+        {/* <SparkleIcon className=" " /> */}
+        <i className="ri-shining-2-fill size-8 m-10 text-red-500"></i>
+    </HeroOrbit>
+   
+    <HeroOrbit size={600} rotation={150} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
+    {/* 1. text-[52px] - Ye SparkleIcon (size-13) ke barabar size dega.
+      2. block - Isse size sahi apply hota hai.
+      3. No margins - m-10 ko remove kar diya taaki alignment na bigde.
+    */}
+    <i className="ri-shining-2-fill text-[52px] text-yellow-500 block leading-none"></i>
+</HeroOrbit>
+       <HeroOrbit size={600} rotation={-100} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
+      {/* <SparkleIcon className="size-13 text-primary" /> */}
+         <i className="ri-shining-2-fill size-13  text-red-500"></i>
+       
+        
+    </HeroOrbit>
+  <HeroOrbit size={600} rotation={90} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
+      <Dot className="size-23 text-red-500" />
+      
+        
+    </HeroOrbit>
 
-                <HeroOrbit size={590} rotation={98} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
-                    <StarIcon className="size-8 text-primary" />
-                </HeroOrbit>
+    {/* Orbit 3 (Size 430) - 2 Icons */}
+    <HeroOrbit size={430} rotation={-14} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
+        {/* <SparkleIcon className="size-8 text-primary" /> */}
+           <i className="ri-shining-2-fill size-13  text-red-500"></i>
+       
+    </HeroOrbit>
+    <HeroOrbit size={430} rotation={150} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
+            <i className="ri-shining-2-fill size-13  text-yellow-500"></i>
+    </HeroOrbit>
+   
+    
+    {/* Orbit 4 (Size 720) - 3 Icons */}
+       <HeroOrbit size={720} rotation={-150} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
+        <Dot className="size-18 text-red-500" />
 
-                <HeroOrbit size={430} rotation={-14} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
-                    <SparkleIcon className="size-8 text-primary" />
-                </HeroOrbit>
-                
-                <HeroOrbit size={720} rotation={85} shouldOrbit orbitDuration="46s" >
-                     <SparkleIcon className="size-8 text-primary" />      
-                         
-                </HeroOrbit>
-            </div>
+   
+    </HeroOrbit>
+      <HeroOrbit size={720} rotation={-14} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
+        {/* <SparkleIcon className="size-8 text-primary" /> */}
+            <i className="ri-shining-2-fill size-8 text-red-500"></i>
+    </HeroOrbit>
+    <HeroOrbit size={720} rotation={150} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
+        <Dot className="size-18 text-yellow-500" />
+    </HeroOrbit>
+ 
+</div>
 
             {/* --- 2. HERO CONTENT --- */}
             <div className="container relative z-10 max-w-7xl mx-auto">
@@ -99,7 +136,7 @@ const ringStyle = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 r
                         <span className="bg-gradient-primary bg-clip-text text-transparent">
                             Multi-Industry
                         </span>{' '}
-                        Excellence
+                        Excellence 
                     </h1>
                     
                     <p className="hidden md:block text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto opacity-0 translate-y-[30px] animate-fadeInUp [animation-delay:0.2s]">
