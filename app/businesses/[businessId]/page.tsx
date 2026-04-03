@@ -52,7 +52,6 @@ const BusinessDetailPage = async ({ params }: { params: Promise<{ businessId: st
               <div className="w-full h-full bg-linear-to-r from-slate-300 to-slate-400" />
             )}
             <div className="absolute inset-0 bg-black/10 transition-colors pointer-events-none" />
-
           </div>
 
           {/* Identity Bar */}
