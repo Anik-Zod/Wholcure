@@ -8,7 +8,7 @@ export default function WhyChoose({ data }: { data: Ui }) {
       num: "01",
       icon: "fa-industry",
       title: "Multi-Industry Expertise",
-      desc: `With operations across ${data.industries} diverse sectors, we bring comprehensive knowledge and cross-industry insights to deliver innovative solutions tailored to your needs.`,
+      desc: `With operations across ${data?.industries} diverse sectors, we bring comprehensive knowledge and cross-industry insights to deliver innovative solutions tailored to your needs.`,
     },
     {
       num: "02",
