@@ -4,14 +4,15 @@ import { Business } from "@/types";
 const FeaturesSection = ({biz}: { biz: Business }) => {
   return (
  <div>
+ <div>
       <div className="grid md:grid-cols-2 gap-8 mt-5">
         
         {/* --- CARD 1: FEATURES --- */}
-        <div className="group relative p-10 rounded-[25px] border-t-4 border-[#f36d33] bg-white  shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
+        <div className="group relative p-10 rounded-[25px] border-t-4 border-[#f05225] bg-white  shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
           {/* Background Number 01 */}
     
   
-          <div className="w-[70px] h-[70px] p-4 flex items-center justify-center bg-gradient-primary rounded-2xl text-white mb-8 shadow-lg shadow-primary/30 transition-transform group-hover:scale-110">
+          <div className="w-[70px] h-[70px] p-4 flex items-center justify-center bg-[#f05225] rounded-2xl text-white mb-8 shadow-lg shadow-primary/30 transition-transform group-hover:scale-110">
             <ListStart className="w-full h-full" />
           </div>
           
@@ -30,13 +31,13 @@ const FeaturesSection = ({biz}: { biz: Business }) => {
        
         {/* --- CARD 3: INDUSTRIES --- */}
    
-          <div className="group relative p-10 rounded-[25px] border-t-4 border-[#f36d33] bg-white  shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
+          <div className="group relative p-10 rounded-[25px] border-t-4 border-[#f05225] bg-white  shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
             
           {/* Background Number 03 */}
       
   
           <div className='flex  items-center gap-5'>
-            <div className="w-[70px] h-[70px]  p-4 flex items-center justify-center bg-gradient-primary rounded-2xl text-white mb-8 shadow-lg shadow-primary/30 transition-transform group-hover:scale-110">
+            <div className="w-[70px] h-[70px]  p-4 flex items-center justify-center bg-[#f05225] rounded-2xl text-white mb-8 shadow-lg shadow-primary/30 transition-transform group-hover:scale-110">
             <Building2 className="w-full h-full" />
           </div>
           
@@ -46,7 +47,7 @@ const FeaturesSection = ({biz}: { biz: Business }) => {
     {biz.details.industries.map((item: string, index: number) => (
   <span 
     key={index} 
-    className="cursor-default rounded-full border border-gray-200 bg-gray-100 px-5 py-2.5 text-sm font-medium text-gray-700 transition-all duration-300 hover:scale-105 hover:border-[#f36d33] hover:bg-white hover:text-[#f36d33] hover:shadow-md mx-0.5"
+    className="cursor-default rounded-full border border-gray-200 bg-gray-100 px-5 py-2.5 text-sm font-medium text-gray-700 transition-all duration-300 hover:scale-105 hover:border-[#f05225] hover:bg-white hover:text-[#f05225] hover:shadow-md mx-0.5"
   >
     {item}
   </span>
@@ -56,6 +57,8 @@ const FeaturesSection = ({biz}: { biz: Business }) => {
   
       </div>
     
+    </div>
+
     </div>
   )
 }
