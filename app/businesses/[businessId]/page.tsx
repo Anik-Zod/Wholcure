@@ -171,7 +171,7 @@ const BusinessDetailPage = ({
       <section className="w-full bg-gray-50/50 py-24">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
           <div className="max-w-2xl mb-16">
-            <h3 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4">Our Strengths</h3>
+            <h3 className="text-primary text-sm font-bold uppercase  mb-4">Our Strengths</h3>
             <p className="text-2xl text-gray-800 font-medium leading-snug">{biz.whyWeBest}</p>
           </div>
           
