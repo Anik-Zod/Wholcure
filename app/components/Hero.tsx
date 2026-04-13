@@ -59,7 +59,7 @@ export default function Hero({ data }: { data: Ui }) {
     }, [data]);
 
     // Common style for all rings to ensure visibility
-const ringStyle = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f05225]/30 shadow-[0_0_20px_rgba(240,82,37,0.3),_inset_0_0_15px_rgba(240,82,37,0.2)] [mask-image:radial-gradient(closest-side,transparent_95%,black_100%)] ";
+const ringStyle = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-0  [mask-image:radial-gradient(closest-side,transparent_95%,black_100%)] ";
     return (
         <section ref={heroRef} id="home" className="relative min-h-screen w-full flex items-center justify-center bg-hero-bg overflow-hidden pt-20 pb-34 px-6 text-center">
             
@@ -79,19 +79,54 @@ const ringStyle = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 r
     <HeroOrbit size={590} rotation={98} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
       
         {/* <SparkleIcon className=" " /> */}
-        <i className="ri-shining-2-fill size-8 m-10 text-red-500"></i>
+        {/* <i className="ri-shining-2-fill size-8 m-10 text-red-500"></i> */}
+
+        <img
+    src="/yellowStar.svg"
+
+  alt="star" 
+  className="w-15 h-15 text-primary" // Tailwind class ya inline style use karein
+/>
+
+
+
     </HeroOrbit>
    
     <HeroOrbit size={600} rotation={150} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
     {/* 1. text-[52px] - Ye SparkleIcon (size-13) ke barabar size dega.
       2. block - Isse size sahi apply hota hai.
       3. No margins - m-10 ko remove kar diya taaki alignment na bigde.
-    */}
-    <i className="ri-shining-2-fill text-[52px] text-yellow-500 block leading-none"></i>
+    // */}
+            <img
+    src="/redStar.svg"
+
+  alt="star" 
+  className="w-20 h-20  " // Tailwind class ya inline style use karein
+/>
+
+</HeroOrbit>
+   <HeroOrbit size={600} rotation={250} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
+    {/* 1. text-[52px] - Ye SparkleIcon (size-13) ke barabar size dega.
+      2. block - Isse size sahi apply hota hai.
+      3. No margins - m-10 ko remove kar diya taaki alignment na bigde.
+    // */}
+            <img
+    src="/yellowStar.svg"
+
+  alt="star" 
+  className="w-20 h-20  " // Tailwind class ya inline style use karein
+/>
+
 </HeroOrbit>
        <HeroOrbit size={600} rotation={-100} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
       {/* <SparkleIcon className="size-13 text-primary" /> */}
-         <i className="ri-shining-2-fill size-13  text-red-500"></i>
+         {/* <i className="ri-shining-2-fill size-13  text-red-500"></i> */}
+                  <img
+    src="/sparkleYellow.svg"
+
+  alt="star" 
+  className="w-8 h-8 text-primary " // Tailwind class ya inline style use karein
+/>   
        
         
     </HeroOrbit>
@@ -104,11 +139,22 @@ const ringStyle = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 r
     {/* Orbit 3 (Size 430) - 2 Icons */}
     <HeroOrbit size={430} rotation={-14} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
         {/* <SparkleIcon className="size-8 text-primary" /> */}
-           <i className="ri-shining-2-fill size-13  text-red-500"></i>
+           {/* <i className="ri-shining-2-fill size-13  text-red-500"></i> */}
+                             <img
+    src="/redStar.svg"
+
+  alt="star" 
+  className="w-10 h-10 text-primary"
+/>   
        
     </HeroOrbit>
     <HeroOrbit size={430} rotation={150} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
-            <i className="ri-shining-2-fill size-13  text-yellow-500"></i>
+                                  <img
+    src="/yellowStar.svg"
+
+  alt="star" 
+  className="w-10 h-10 text-primary " 
+/>
     </HeroOrbit>
    
     
@@ -120,7 +166,13 @@ const ringStyle = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 r
     </HeroOrbit>
       <HeroOrbit size={720} rotation={-14} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
         {/* <SparkleIcon className="size-8 text-primary" /> */}
-            <i className="ri-shining-2-fill size-8 text-red-500"></i>
+            {/* <i className="ri-shining-2-fill size-8 text-red-500"></i> */}
+                                              <img
+    src="/redStar.svg"
+
+  alt="star" 
+  className="w-10 h-10 text-primary " 
+/>
     </HeroOrbit>
     <HeroOrbit size={720} rotation={150} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
         <Dot className="size-18 text-yellow-500" />
@@ -170,7 +222,7 @@ const ringStyle = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 r
                             { label: 'Team Members', value: counts.teamMembers },
                             { label: 'Happy Clients', value: counts.happyClients >= 1000 ? '1000+' : counts.happyClients },
                         ].map((stat, i) => (
-                            <div key={i} className="p-6 bg-white/15 rounded-2xl backdrop-blur-md border border-white/10 shadow-xl transition-all hover:translate-y-[-5px]">
+                            <div key={i} className="p-6 bg-white rounded-2xl backdrop-blur-md border border-white/10 shadow-xl transition-all hover:translate-y-[-5px]">
                                 <h3 className="text-4xl md:text-5xl font-black text-primary mb-2">
                                     {stat.value}
                                 </h3>
