@@ -8,9 +8,11 @@ const FeaturesSection = ({biz}: { biz: Business }) => {
       <div>
         {/* Mobile pe 2 columns dikhane ke liye 'grid-cols-2' rakha hai aur gap thoda kam kiya hai (gap-4) */}
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 mt-5">
-          
+
           {/* --- CARD 1: FEATURES --- */}
-          <div className="group relative p-6 md:p-10 rounded-[25px] border-t-4 border-[#f05225] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
+               <div className="group relative p-6 md:p-10 rounded-[25px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.03)] overflow-hidden
+            before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] 
+            before:bg-gradient-to-r before:from-[#f05225] before:via-[#fdb614] before:via-[#88bb40] before:to-[#399cd6]">
             <div className="w-[50px] h-[50px] md:w-[70px] md:h-[70px] p-3 md:p-4 flex items-center justify-center bg-[#f05225] rounded-2xl text-white mb-6 md:mb-8 shadow-lg shadow-primary/30 transition-transform group-hover:scale-110">
               <ListStart className="w-full h-full" />
             </div>
@@ -27,7 +29,9 @@ const FeaturesSection = ({biz}: { biz: Business }) => {
           </div>
     
           {/* --- CARD 2: INDUSTRIES --- */}
-          <div className="group relative p-6 md:p-10 rounded-[25px] border-t-4 border-[#f05225] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
+          <div className="group relative p-6 md:p-10 rounded-[25px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.03)] overflow-hidden
+            before:absolute before:top-0 before:left-0 before:right-0 before:h-[5px] 
+            before:bg-gradient-to-r before:from-[#f05225] before:via-[#fdb614] before:via-[#88bb40] before:to-[#399cd6]">
             <div className='flex flex-col md:flex-row md:items-center gap-2 md:gap-5'>
               <div className="w-[50px] h-[50px] md:w-[70px] md:h-[70px] p-3 md:p-4 flex items-center justify-center bg-[#f05225] rounded-2xl text-white mb-4 md:mb-8 shadow-lg shadow-primary/30 transition-transform group-hover:scale-110">
                 <Building2 className="w-full h-full" />

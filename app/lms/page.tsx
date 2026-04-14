@@ -19,6 +19,27 @@ export default function LMS() {
                     badgeClass='bg-secondary/20 text-secondary'
                     description="Professional training and skill development for industry excellence"
                 />
+                {/* Search Bar Section */}
+<div className="max-w-2xl mx-auto mb-16 relative group">
+    <div className="absolute -inset-1  rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+    <div className="relative flex items-center bg-white rounded-2xl shadow-custom-md overflow-hidden border border-gray-100">
+        <div className="pl-6 text-text-secondary">
+            <i className="fas fa-search text-xl"></i>
+        </div>
+        <input 
+            type="text" 
+            placeholder="Search for courses, skills or certifications..." 
+            className="w-full py-5 px-6 outline-none text-text bg-transparent placeholder:text-text-light/60"
+        />
+        <button className="bg-gradient-primary-reverse text-white px-8 py-5 font-bold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>Find</span>
+            <i className="fas fa-arrow-right text-sm"></i>
+        </button>
+    </div>
+    
+    {/* Optional: Popular Tags under search */}
+
+</div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {/* Feature 1 */}
