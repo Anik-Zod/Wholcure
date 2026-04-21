@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
         hostname: "example.com",
       },
     ],                
-  },         
+  },            
 };
 
 export default nextConfig;
