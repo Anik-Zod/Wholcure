@@ -1,6 +1,6 @@
 import { Building2, Layout, Palette } from 'lucide-react'
 import React from 'react'
-import { Business } from "@/types";
+import { Business, Service } from "@/types";
 
 // 1. Skeleton Loader Component (Bahar define kiya hai)
 const SkeletonServiceCard = () => (
@@ -27,26 +27,7 @@ const SkeletonServiceCard = () => (
 );
 
 const ServicesSection = ({ biz }: { biz: Business | null }) => {
-  const services = [
-    {
-      title: "Residential Masterpieces",
-      desc: "Crafting living spaces that blend architectural innovation with soulful design.",
-      icon: <Layout size={24} />,
-      colour1: '#F15126', 
-    },
-    {
-      title: "Digital Brand Design",
-      desc: "From logos to color palettes, together we'll develop your brand that stands out from the competition.",
-      icon: <Palette size={32} />,
-      colour1: '#88BB40', 
-    },
-    {
-      title: "Commercial Excellence",
-      desc: "Digital products come in many shapes and sizes—from apps and automotive interfaces.",
-      icon: <Building2 size={24} />,
-      colour1: '#FEB713', 
-    }
-  ];
+ 
 
   // 2. Loading State Check
   if (!biz) {
@@ -64,7 +45,7 @@ const ServicesSection = ({ biz }: { biz: Business | null }) => {
   return (
     <div className=" py-12 md:py-3">
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-3 md:p-6 justify-items-center max-w-7xl mx-auto">
-        {services.map((r, index) => (
+        {biz.services?.map((r: Service, index: number) => (
           <div 
             key={index} 
             className="relative group w-full h-[380px] md:h-[450px] rounded-[24px] md:rounded-[48px] border border-black/5 overflow-hidden shadow-xl transition-transform duration-500 hover:scale-[1.02] bg-white"
@@ -73,17 +54,17 @@ const ServicesSection = ({ biz }: { biz: Business | null }) => {
             <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none z-10"></div>
             <div 
               className="absolute -bottom-20 -left-20 w-60 h-60 md:w-80 md:h-80 blur-[60px] md:blur-[80px] rounded-full pointer-events-none opacity-30 transition-opacity group-hover:opacity-50"
-              style={{ backgroundColor: r.colour1 }}
+              style={{ backgroundColor: r.bgColour ||"bg-red-500"}}
             ></div>
 
             {/* Content */}
             <div className="relative z-20 p-5 md:p-10 h-full flex flex-col">
               <div className="flex-grow">
                 <h3 className="text-gray-900 text-lg md:text-4xl font-bold leading-tight mb-2 md:mb-4 tracking-tight">
-                  {r.title}
+                  {r.title || "Service Title"}
                 </h3>
                 <p className="text-slate-600 text-xs md:text-base leading-relaxed line-clamp-3 md:line-clamp-none">
-                  {r.desc}
+                  {r.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
                 </p>
               </div>
 

@@ -110,7 +110,7 @@ export default function Navbar() {
           onClick={(e) => handleLinkClick(e, 'home')}
         >
 
-          <img src="/wholcure.png" alt="WholCure" className="w-[160px] h-[40px]" />
+          <img src="/ac.jpeg" alt="WholCure" className="w-[160px] h-[50px]" />
         </Link>
 
         <ul className={`lg:flex items-center gap-8 ${isMenuOpen ? 'fixed top-[70px] left-0 w-full h-[calc(100vh-70px)] bg-white flex flex-col p-8 gap-0 overflow-y-auto shadow-custom-lg transition-all duration-300' : 'hidden lg:flex'} `} id="navMenu">
@@ -137,6 +137,7 @@ export default function Navbar() {
           <span className={`w-[25px] h-[3px] bg-primary rounded-sm transition-all duration-300 ${isMenuOpen ? '-rotate-45 translate-x-[8px] -translate-y-[8px]' : ''}`}></span>
         </div>
       </div>
+   
     </nav>
   );
 }

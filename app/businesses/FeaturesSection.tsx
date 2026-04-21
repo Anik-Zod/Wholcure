@@ -19,7 +19,7 @@ const FeaturesSection = ({biz}: { biz: Business }) => {
             
             <h4 className="text-lg md:text-2xl font-bold text-gray-900 mb-4">Features</h4>
             <ul className="space-y-2 md:space-y-3">
-              {biz.details.features.map((item: string, index: number) => (
+              {biz.features.map((item: string, index: number) => (
                 <li key={index} className="flex items-center gap-2 md:gap-3 text-gray-600 text-xs md:text-sm group/li">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#f05225] shrink-0" />
                   <span className="group-hover/li:text-[#f05225] transition-colors line-clamp-1">{item}</span>
@@ -41,7 +41,7 @@ const FeaturesSection = ({biz}: { biz: Business }) => {
 
             {/* Industries ke chips ko flex-wrap kiya hai taaki mobile par overlap na ho */}
             <div className="flex flex-wrap gap-2">
-              {biz.details.industries.map((item: string, index: number) => (
+              {biz.industries.map((item: string, index: number) => (
                 <span 
                   key={index} 
                   className="cursor-default rounded-full border border-gray-200 bg-gray-100 px-3 py-1.5 md:px-5 md:py-2.5 text-[10px] md:text-sm font-medium text-gray-700 transition-all duration-300 hover:scale-105 hover:border-[#f05225] hover:bg-white hover:text-[#f05225] hover:shadow-md"

@@ -9,6 +9,8 @@ import FeaturesSection from "../FeaturesSection";
 import { BouncingBackground } from "./BouncingBackground";
 import ServicesSection from "./ServicesSection";
 import { getBusinessById } from "@/services/businessService";
+import Partners from "./Partners";
+
 
 const BusinessDetailPage = ({
   params,
@@ -31,14 +33,7 @@ const BusinessDetailPage = ({
         }
         setBiz(businessData);
 
-        const res = await fetch('https://api.yourbackend.com/button-settings');
-        if (res.ok) {
-          const data = await res.json();
-          setButtonData({
-            label: data.btnText || "View Portfolio",
-            path: data.btnLink || "/portfolio"
-          });
-        }
+        
       } catch (error) {
         console.error("Initialization error:", error);
       } finally {
@@ -72,7 +67,7 @@ const BusinessDetailPage = ({
   const mainTitle = titleArray.join(" ");
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden">
+    <div className="relative min-h-screen w-full overflow-x-hidden mt-10">
       
       {/* Background Layer */}
       <div className="fixed inset-0 -z-10">
@@ -120,15 +115,21 @@ const BusinessDetailPage = ({
               </div>
 
               <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
-                {biz.description}
+                {biz.mainDescription}
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
-              <Link href={buttonData.path} className="bg-primary text-white px-10 py-4 rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform">
-                {buttonData.label} &rarr;
-              </Link>
+
+<a 
+  href={biz.mainButtonLink} 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="bg-primary text-white px-10 py-4 rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform inline-block"
+>
+  {biz.mainButtonRewrite || "View PDF"}
+</a>
               <Link href="/contact" className="border border-gray-200 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all">
                 Contact Us
               </Link>
@@ -171,16 +172,19 @@ const BusinessDetailPage = ({
       <section className="w-full bg-gray-50/50 py-24">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
        <div className="max-w-2xl mb-16 mx-auto text-center">
-  <h3 className="text-primary text-sm font-bold uppercase mb-4">Our Strengths</h3>
+  <h3 className="text-primary text-sm font-bold uppercase mb-4">{biz.serviceHeading}</h3>
   <p className="text-2xl text-gray-800 font-medium leading-snug">
     {biz.whyWeBest}
   </p>
 </div>
           
           <ServicesSection biz={biz} />
+
+          <Partners biz={biz} />
           <div className="">
             <FeaturesSection biz={biz} />
           </div>
+          
         </div>
       </section>
     </div>
