@@ -25,7 +25,7 @@ function ContactUs() {
             return;
         }
 
-        setIsSubmitting(true);
+        setIsSubmitting(true);    
         setError(null);
 
         const formData = new FormData(e.currentTarget);
