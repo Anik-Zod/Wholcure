@@ -1,14 +1,23 @@
 export interface Business {
   _id: string
+  mainButtonLink:string
   title: string
   description: string
   category?: string
   tags?: string[]
   logo: string
   coverPhoto?: string
+  features?:any
+  industries?:any
+  mainButtonRewrite:string
+  mainButtonPDF:string
+  serviceHeading:string
+  mainDescription:string
+  serviceSubHeading:string
   location?: string
   isVerified?: boolean
   details: any
+  services?: any  
   whyWeBest?: string
   partners?: string[]
   website?: string
@@ -66,4 +75,10 @@ export interface SocialMedum {
   _id: string
   name: string
   url: string
+}
+
+export interface Service {
+  title: string;
+  description: string;
+  bgColour: string;
 }
