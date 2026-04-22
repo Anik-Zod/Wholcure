@@ -1,9 +1,6 @@
-
-
 import { getAllJobs } from '@/services/jobService';
 import SectionHeader from '../components/SectionHeader';
-import { Job } from '@/types';
-import JobCard from './jobCard';
+import JobSearchList from './JobSearchList'; // Import the new component
 
 export const dynamic = 'force-dynamic';
 
@@ -41,14 +38,9 @@ export default async function Careers() {
                         ))}
                     </div>
                 </div>
-                <div className="bg-slate-50 py-12 px-4">
-                    <h3 className="text-3xl font-bold mb-10 text-center text-slate-800">Current Openings</h3>
-                    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {jobs.map((job: Job) => (
-                            <JobCard key={job._id} job={job} />
-                        ))}
-                    </div>
-                </div>
+
+                {/* The new interactive section */}
+                <JobSearchList jobs={jobs} />
 
             </div>
         </section>
